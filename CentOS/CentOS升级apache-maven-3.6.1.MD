@@ -2,15 +2,17 @@
 
 ### 查看当前版本
 $ mvn -version
+```
 Apache Maven 3.5.2 ................
 Maven home: /usr/share/apache-maven
 ...
+```
 
 cd /usr/local
 ### 下载新版本
 $ wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
 
-    [更多版本](http://maven.apache.org/download.cgi)
+[更多版本](http://maven.apache.org/download.cgi)
 
 ### 解压
 $ tar -zxvf apache-maven-3.6.1-bin.tar.gz
@@ -22,6 +24,8 @@ $ cp -r /usr/local/apache-maven-3.6.1 /usr/share/apache-maven
 
 ### 查看当前版本
 $ mvn -version
+```
 Apache Maven 3.6.1 ................
 Maven home: /usr/share/apache-maven
 ...
+```
