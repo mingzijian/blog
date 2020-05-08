@@ -48,6 +48,30 @@ Docker 安装
 
  - 配置 Dockers
    - Docker 服务自启动 `systemctl enable docker.service`
+   - Docker 镜像源
+     - 国内镜像源
+       - Docker中国 http://registry.docker-cn.com
+       - 网易 http://hub-mirror.c.16
+       - 中国科学技术大学 http://docker.mirrors.ustc.edu.cn
+     - 配置方式 `vim /etc/docker/daemon.json`
+       ``` 
+       {
+            "registry-mirrors": [
+                "http://registry.docker-cn.com",
+                "http://docker.mirrors.ustc.edu.cn",
+                "http://hub-mirror.c.163.com"
+            ],
+            "insecure-registries": [
+                "registry.docker-cn.com",
+                "docker.mirrors.ustc.edu.cn"
+            ],
+            "debug": true,
+            "experimental": true
+        }
+        ```
+     - 修改后重启生效 `systemctl restart docker`
+
+
 
 
 
