@@ -30,9 +30,9 @@ Docker应用-搭建MySQL主从
    $ docker images|grep mysql
      mysql               5.7                 f965319e89de        10 days ago         448MB
    ```
- - 使用 MySQL 镜像分别启动‘主’‘从’两个容器 
-   - 主(Master) 对外映射端口：33061 密码：123456
-     `docker run -p 33061:3306 --name mysql-master -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7`
+ - 启动‘主’‘从’两个容器  (每个容器有其独立的ip，容器内部尽量使用mysql默认的3306端口)
+   - 主(Master) 对外映射端口：3306 密码：123456
+     `docker run -p 3306:3306 --name mysql-master -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7`
    - 从(Slave)  对外映射端口：33062 密码：123456
      `docker run -p 33062:3306 --name mysql-slave -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7`
 
@@ -41,3 +41,10 @@ Docker应用-搭建MySQL主从
    - 停止容器 `docker stop xxx` xxx为容器name
    - 删除容器 `docker rm xxx` xxx为容器name ，删除之前需先停止容器运行
 
+ - 配置‘主’‘从’两个容器
+   - 主容器(Master)配置
+      - 通过 `docker exec -it mysql-master /bin/bash` 命令进入到 Master 容器内部
+      - `cd /etc/mysql` 切换到 `/etc/mysql` 目录
+      - 容器内安装 vim `apt update` `apt install vim`
+   - 从容器(Slave)配置
+      - 通过`docker exec -it mysql-slave /bin/bash`命令进入到Slave容器内部
