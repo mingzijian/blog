@@ -89,7 +89,42 @@ MySQL-用户与权限
     +---------------------------------------------------------------+
     2 rows in set (0.06 sec)
     ```
-
+ - 权限列表
+|权  限|作用范围|作  用|
+| --- | --- | --- |
+|all	|服务器	|所有权限|
+|select	|表、列	|选择行  |
+|insert	|表、列	|插入行  |
+|update	|表、列	|更新行  |
+|delete	|表		|删除行  |
+|create	|数据库、表、索引|	创建 |
+|drop	|数据库、表、视图|	删除 |
+|reload		|服务器|	允许使用flush语句|
+|shutdown	|服务器|	关闭服务         |
+|process	|服务器|	查看线程信息     |
+|file		|服务器|	文件操作         |
+|grant option	|数据库、表、存储过程	|授权            |
+|references		|数据库、表				|外键约束的父表  |
+|index			|表					|创建/删除索引   |
+|alter			|表					|修改表结构      |
+|show databases	|服务器	|查看数据库名称 |
+|super			|服务器	|超级权限       |
+|create temporary tables	|表			|创建临时表 |
+|lock tables				|数据库		|锁表       |
+|execute					|存储过程	|执行       |
+|replication client	|服务器	|允许查看主/从/二进制日志状态 |
+|replication slave	|服务器	|主从复制|
+|create view		|视图	|创建视图|
+|show view			|视图	|查看视图|
+|create routine	|存储过程	|创建存储过程|
+|alter routine	|存储过程	|修改/删除存储过程|
+|create user	|服务器	|创建用户                 |
+|event			|数据库	|创建/更改/删除/查看事件  |
+|trigger		|表		|触发器             |
+|create tablespace	|服务器|	创建/更改/删除表空间/日志文件 |
+|proxy				|服务器|	代理成为其它用户     |
+|usage				|服务器|	没有权限            |
+ 
 
 #### 参考
  - https://dev.mysql.com/doc/
