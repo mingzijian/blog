@@ -10,6 +10,7 @@ default-character-set=utf8mb4
 default-character-set=utf8mb4
  
 [mysqld]
+server-id = 1 # 表示是本机的序号为1，同一局域网内注意要唯一
 skip-locking 
 #避免MySQL的外部锁定，减少出错几率增强稳定性。
  
@@ -238,3 +239,4 @@ write_buffer = 4M
 
 #### 参考
  - https://blog.csdn.net/u014044812/article/details/78929579
+ - https://www.cnblogs.com/xiaohanhan1991/p/10057354.html
