@@ -13,7 +13,7 @@ Redis借鉴了Linux操作系统对于版本号的命名规则：
  - y：错误修补的次数。
 
 #### 各版本特性
-1.Redis2.6 （2012-10-23）
+##### 1.Redis2.6 （2012-10-23）
   <pre>Redis2.6在2012年正是发布，经历了17个版本，到2.6.17版本，相对于Redis2.4，主要特性如下：</pre>
   - 1）服务端支持Lua脚本。
   - 2）去掉虚拟内存相关功能。
@@ -29,7 +29,7 @@ Redis借鉴了Linux操作系统对于版本号的命名规则：
   - 12）info可以按照section输出，并且添加了一些统计项
   - 13）sort命令优化
  
-2.Redis2.8 （2013-11-22）
+##### 2.Redis2.8 （2013-11-22）
   <pre>Redis2.8在2013年11月22日正式发布，经历了24个版本，到2.8.24版本，相比于Redis2.6，主要特性如下：</pre>
   - 1）添加部分主从复制的功能，在一定程度上降低了由于网络问题，造成频繁全量复制生成RDB对系统造成的压力。
   - 2）尝试性的支持IPv6.
@@ -40,7 +40,7 @@ Redis借鉴了Linux操作系统对于版本号的命名规则：
   - 7）发布订阅添加了pubsub。
   - 8）Redis Sentinel第二版，相比于Redis2.6的Redis Sentinel，此版本已经变成生产可用。
 
-3.Redis3.0 （2015-04-01）
+##### 3.Redis3.0 （2015-04-01）
   <pre>Redis3.0在2015年4月1日正式发布，相比于Redis2.8主要特性如下：</pre>
   - 1）Redis Cluster：Redis的官方分布式实现。
   - 2）全新的embedded string对象编码结果，优化小对象内存访问，在特定的工作负载下载速度大幅提升。
@@ -53,7 +53,7 @@ Redis借鉴了Linux操作系统对于版本号的命名规则：
   - 9）Redis日志小做调整：日志中会反应当前实例的角色（master或者slave）。
   - 10）incr命令性能提升。
 
-4.Redis3.2 （2016-05-06）
+##### 4.Redis3.2 （2016-05-06）
   <pre>增加的最大功能就是对GEO（地理位置）的支持。相比于Redis3.0主要特征如下：</pre>
   - 1）添加GEO相关功能。
   - 2）SDS在速度和节省空间上都做了优化。
@@ -72,7 +72,7 @@ Redis借鉴了Linux操作系统对于版本号的命名规则：
   - 15）cluster nodes命令得到加速。
   - 16）Jemalloc更新到4.0.3版本。
  
-5.Redis4.0 （2017-07-15）
+##### 5.Redis4.0 （2017-07-15）
   <pre>更好的复制（PSYNC2），线程DEL / FLUSH，混合RDB + AOF格式，活动内存碎片整理，内存使用和性能改进。下面是Redis4.0的新特性：</pre>
   - 1）提供了模块系统，方便第三方开发者拓展Redis的功能。
   - 2）PSYNC2.0：优化了之前版本中，主从节点切换必然引起全量复制的问题。
@@ -83,7 +83,7 @@ Redis借鉴了Linux操作系统对于版本号的命名规则：
   - 7）提供了RDB-AOF混合持久化格式，充分利用了AOF和RDB各自优势。
   - 8）Redis Cluster 兼容NAT和Docker。
 
-6.Redis5.0 （2018-10-18）
+##### 6.Redis5.0 （2018-10-18）
   <pre>引入流数据类型(Stream data type) 。下面是Redis5.0的新特性：</pre>
   - 1） 新的流数据类型(Stream data type) https://redis.io/topics/streams-intro
   - 2） 新的 Redis 模块 API：定时器、集群和字典 API(Timers, Cluster and Dictionary APIs)
@@ -108,7 +108,7 @@ Redis借鉴了Linux操作系统对于版本号的命名规则：
   - 18）引入动态的 HZ(Dynamic HZ) 以平衡空闲 CPU 使用率和响应性
   - 19）对 Redis 核心代码进行了重构并在许多方面进行了改进
 
-6.Redis6.0 （2020）
+##### 6.Redis6.0 （2020）
   
 
 
