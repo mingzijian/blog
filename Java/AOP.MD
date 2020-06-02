@@ -37,10 +37,28 @@ AOP (Aspect Oriented Programming) 面向切面编程
  - 织入： 
    是把切面应用到目标对象，并创建新的代理对象的过程。切面在指定的连接点被织入到目标对象中。在目标对象的生命周期中有多个点可以进行织入： 编译期： 在目标类编译时，切面被织入。这种方式需要特殊的编译器。AspectJ的织入编译器就是以这种方式织入切面的。
 
+ - 目标对象（Target Object）: 
+   包含连接点的对象。也被称作被通知或被代理对象。
+
  - 类加载期： 
    切面在目标加载到JVM时被织入。这种方式需要特殊的类加载器(class loader)它可以在目标类被引入应用之前增强该目标类的字节码。
 
  - 运行期：  
    切面在应用运行到某个时刻时被织入。一般情况下，在织入切面时，AOP容器会为目标对象动态地创建一个代理对象。SpringAOP就是以这种方式织入切面的。
+
+#### AOP使用场景
+ - Authentication 权限
+ - Caching 缓存
+ - Context passing 内容传递
+ - Error handling 错误处理
+ - Lazy loading　懒加载
+ - Debugging　　调试
+ - logging, tracing, profiling and monitoring　记录跟踪　优化　校准
+ - Performance optimization　性能优化
+ - Persistence　　持久化
+ - Resource pooling　资源池
+ - Synchronization　同步
+ - Transactions 事务
+
 
  
