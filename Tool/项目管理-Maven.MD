@@ -13,7 +13,10 @@ Nexus是一个强大的Maven仓库管理器，它极大的简化了本地内部�
 
 ### Maven 私服搭建 
 #### 下载 Nexus Repository OSS
-官方下载地址：https://www.sonatype.com/download-nexus-repo-oss
+官方下载：https://help.sonatype.com/repomanager3/download
+ - Unix : https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+ - Windows : https://download.sonatype.com/nexus/3/latest-win64.zip
+ - OSX : https://download.sonatype.com/nexus/3/latest-mac.tgz
 #### 安装
 
 #### 启动
