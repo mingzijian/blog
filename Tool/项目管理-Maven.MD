@@ -51,7 +51,87 @@ Nexus是一个强大的Maven仓库管理器，它极大的简化了本地内部�
  - 步骤图示
 ![上传第三方jar](https://images.gitee.com/uploads/images/2020/0611/152244_d23375f5_536895.png "上传第三方jar.png")
 
-#### pom.xml 配置
+#### maven setting.xml 配置
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <pluginGroups></pluginGroups>
+
+  <proxies></proxies>
+
+  <servers>
+	<server>
+      <id>outfit-deploy-release</id>
+      <username>username</username>
+      <password>password</password>
+    </server>
+    <server>
+      <id>outfit-deploy-snapshot</id>
+      <username>username</username>
+      <password>password</password>
+    </server>
+  </servers>
+
+  <mirrors>
+	<mirror>
+      <id>nexue</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://192.168.20.9:8081/nexus/content/groups/public/</url>
+    </mirror>
+	<mirror>
+	  <id>huaweicloud</id>
+      <mirrorOf>*</mirrorOf>
+      <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+	</mirror>
+  </mirrors>
+
+  
+  <profiles>
+	<profile>
+		<id>outfit</id>
+		<repositories>  
+			<repository>
+				<id>outfit-repository</id>
+				<releases>
+					<enabled>true</enabled>
+					<updatePolicy>always</updatePolicy>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+					<updatePolicy>always</updatePolicy>
+				</snapshots>
+				<url>http://192.168.20.9:8081/nexus/content/groups/public/</url>
+			</repository>
+		</repositories>
+
+		<pluginRepositories>
+			<pluginRepository>
+			  <id>central</id>
+			  <url>http://192.168.20.9:8081/nexus/content/groups/public/</url>
+			  <releases>
+			    <enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			  </releases>
+			  <snapshots>
+			    <enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			  </snapshots>
+			</pluginRepository>
+		</pluginRepositories>
+	</profile>
+  </profiles>
+  
+  <activeProfiles>
+    <activeProfile>outfit</activeProfile>
+  </activeProfiles>
+
+</settings>
+
+```
+#### 工程 pom.xml 配置
 ```xml
 <project ...>
     ...
