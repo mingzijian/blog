@@ -2,6 +2,11 @@
 ---------------------
 ## Maven 私服
 ### Maven 私服搭建
+#### 下载 Nexus Repository OSS
+https://www.sonatype.com/download-nexus-repo-oss
+#### 安装
+
+#### 配置
 
 ### Maven 私服使用
 
