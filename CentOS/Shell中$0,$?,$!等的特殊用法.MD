@@ -21,11 +21,12 @@ Shell中$0,$?,$!等的特殊用法
     添加到Shell的各参数值。$1是第1参数、$2是第2参数、$n是第n参数…。
  - `$[ ]`
     表达式求值。
-    ``` 
+    ```shell 
      a=1
      b=2
      c=$[a+b]
      echo $c
+
      >>> 3
     ```
  - `${ }`
@@ -107,7 +108,7 @@ Shell中$0,$?,$!等的特殊用法
     替换字符串尾部的串A为串B（${var/%A/B}）。
 
 
-
 #### 参考
+ - https://blog.csdn.net/qq_40907977/article/details/95947807
  - https://blog.csdn.net/lihonghai2392/article/details/77868445
 
