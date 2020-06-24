@@ -34,7 +34,18 @@ GC
     2.灰色：对象本身被扫描，但还没扫描完该对象中的子对象
     3.白色(注意两个含义)：未被扫描对象，扫描完成所有对象之后，最终为白色的为不可达对象，即垃圾对象
   </pre>
-  
+  ![三色标记](https://images.gitee.com/uploads/images/2020/0624/183924_a77d5552_536895.gif "三色标记.gif")
+
+  - 多标（浮动垃圾）
+    本该回收的内存，但被标记为存活对象，未回收掉，被称之为“浮动垃圾”。浮动垃圾并不会影响垃圾回收的正确性，只是需等到下一轮垃圾回收才有被清除的可能。
+  - 漏标（读写屏障，类比AOP）
+    本不该回收的内存，未被标记为存活对象，被直接回收。这直接影响到了应用程序的正确性，是不可接受的。
+    - 写屏障（Store Barrier）
+      在赋值操作前后，加入一些处理 （ZGC）
+    - 读屏障（Load Barrier）
+      在载值操作前后，加入一些处理
+      - Increment Update (CMS)
+      - Snapshot At The Beginning (G1)
   
 
 ### GC 垃圾收集器
@@ -78,9 +89,9 @@ GC
 ![三色标记](https://images.gitee.com/uploads/images/2020/0624/163629_9ec7bc2e_536895.png "三色标记.png")
 
 
-##### Incremental Update (增量更新)
-    Incremental Update 算法判断如果一个白色的对象由一个黑色的对象引用，即目的，
-如三色标记图，D的引用由B-->A,A是目的地址，所以cms 的Incremental Update算法是从目标入手解决的，
+
+##### Incremental Update + Store Barrier (增量更新+写屏障)
+    Incremental Update 算法判断如果一个白色的对象由一个黑色的对象引用，如三色标记图，D的引用由B-->A,A是目的地址，所以cms 的Incremental Update算法是从目标入手解决的，
 这是和SATB的第一个区别，发现这种情况时，也是通过write barrier写屏障技术，
 把黑色的对象重新标记为灰色，让collector 重新来扫描，活着通过mod-union table 来标记，CMS 就是这样实现的，
 这是第二个区别，做法不一样，也是上面讲的防止第一种情况发生。
@@ -96,7 +107,7 @@ GC
 虽然还保留了新生代和来年代的概念，但新生代和老年代不再是物理隔离的了它们都是一部分Region（不需要连续）的集合。
 同时，为了避免全堆扫描，G1使用了Remembered Set来管理相关的对象引用信息。
 当进行内存回收时，在GC根节点的枚举范围中加入Remembered Set即可保证不对全堆扫描也不会有遗漏了。
-##### SATB (Snapshot-At-The-Beginning)(原始快照)
+##### SATB (Snapshot At The Beginning + Store Barrier )(原始快照+写屏障)
     SATB 算法认为开始标记的都认为是活的对象。
 如三色标记图所示,引用B到D 的引用改为B到C时，
 通过write barrier写屏障技术，
@@ -107,7 +118,8 @@ GC
 
 
 ####  ZGC
-
+##### 读屏障（Load Barrier）
+当读取成员变量时，一律记录下来
 
 
 ####  Shenandoah
@@ -125,6 +137,7 @@ GC
 ### 参考
  - https://blog.csdn.net/ityouknow/article/details/85826170
  - https://blog.csdn.net/zsj777/article/details/80353464
+ - https://www.jianshu.com/p/12544c0ad5c1
 
 
 
