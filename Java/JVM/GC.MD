@@ -53,6 +53,13 @@ GC
 
 
 #### CMS
+    1）初始标记(STW)
+    
+    2）并发标记
+    
+    3）重新标记(STW)
+    
+    4）并发清除
 
 ![初始标记](https://images.gitee.com/uploads/images/2020/0624/140324_d12c068e_536895.png "初始标记.png")
 
