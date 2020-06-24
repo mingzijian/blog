@@ -106,6 +106,7 @@ Java虚拟机的实现可以使用传统的栈，俗称“C栈”，以支持本
 | 程序计数器   | 对应线程启动时      | 连续     | 独享                         | -                    | -                                       |
 | 方法区       | 虚拟机启动时        | 不必     | 共享                         | √                    | OutOfMemoryError                        |
 
+![运行时数据区](https://images.gitee.com/uploads/images/2020/0624/131226_d5e57543_536895.png "运行时数据区.png")
 官方文档： https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5 
 ![运行时数据区](https://images.gitee.com/uploads/images/2020/0624/115457_72b2c95a_536895.png "jvms-2.5.png")
 
