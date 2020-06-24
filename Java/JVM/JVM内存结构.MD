@@ -13,7 +13,7 @@ JVM支持多线程。每个JVM线程都有其自己的程序计数器。在任�
 
 #### Java Virtual Machine Stacks （Java虚拟机栈）
 
-每个JVM线程都有一个私有Java虚拟机栈，与该线程同事创建。
+每个JVM线程都有一个私有Java虚拟机栈，与该线程同时创建。
 
 Java虚拟机栈的内存可以是不连续的。
 
@@ -39,9 +39,7 @@ Java虚拟机栈可以固定大小，也可以根据计算要求动态伸缩。
 
 堆是在虚拟机启动时创建的。
 
-自动存储管理系统（称为垃圾收集器）可以回收对象的堆存储；
-
-对象永远不会显式释放。 
+自动存储管理系统（称为垃圾收集器）可以回收对象的堆存储；对象永远不会显式释放。 
 
 Java虚拟机不假定特定类型的自动存储管理系统，
 
@@ -100,7 +98,13 @@ Java虚拟机的实现可以使用传统的栈，俗称“C栈”，以支持本
 
 
 
-
+| JVM内存区域  | 何时创建            | 内存连续 | 所有线程共享<br>当前线程独享 | 固定大小<br>动态伸缩 | 相关异常                                |
+| ------------ | ------------------- | -------- | ---------------------------- | -------------------- | --------------------------------------- |
+| 堆           | 虚拟机启动时        | 不必     | 共享                         | √                    | OutOfMemoryError                        |
+| 本地方法栈   | 对应线程创建时（?） | 连续     | 独享                         | √                    | StackOverflowError<br/>OutOfMemoryError |
+| Java虚拟机栈 | 对应线程创建时      | 连续     | 独享                         | √                    | StackOverflowError<br/>OutOfMemoryError |
+| 程序计数器   | 对应线程启动时      | 连续     | 独享                         | -                    | -                                       |
+| 方法区       | 虚拟机启动时        | 不必     | 共享                         | √                    | OutOfMemoryError                        |
 
 官方文档： https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5 
 ![运行时数据区](https://images.gitee.com/uploads/images/2020/0624/115457_72b2c95a_536895.png "jvms-2.5.png")
@@ -109,5 +113,6 @@ Java虚拟机的实现可以使用传统的栈，俗称“C栈”，以支持本
 
  -  https://www.cnblogs.com/ityouknow/p/5610232.html
  -  https://baijiahao.baidu.com/s?id=1668705529778019153&wfr=spider&for=pc 
- -  https://docs.oracle.com/javase/specs/jvms/se8/html/index.html 
- - 
+ - https://docs.oracle.com/javase/specs/jvms/se8/html/index.html 
+
+   
