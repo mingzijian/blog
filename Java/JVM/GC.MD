@@ -63,10 +63,13 @@ GC
 
 初始标记
 ![初始标记](https://images.gitee.com/uploads/images/2020/0624/140324_d12c068e_536895.png "初始标记.png")
+
 并发标记
 ![并发标记](https://images.gitee.com/uploads/images/2020/0624/140432_022a15fe_536895.png "并发标记.png")
+
 三色标记
 ![三色标记](https://images.gitee.com/uploads/images/2020/0624/163629_9ec7bc2e_536895.png "三色标记.png")
+
 
 ##### Incremental Update write barrier
 Incremental Update 算法判断如果一个白色的对象由一个黑色的对象引用，即目的，如三色标记图，D的引用由B-->A,A是目的地址，所以cms 的Incremental Update算法是从目标入手解决的，这是和SATB的第一个区别，发现这种情况时，也是通过write barrier写屏障技术，把黑色的对象重新标记为灰色，让collector 重新来扫描，活着通过mod-union table 来标记，cms 就是这样实现的，这是第二个区别，做法不一样，也是上面讲的防止第一种情况发生。
