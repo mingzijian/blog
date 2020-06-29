@@ -1,6 +1,6 @@
 for(;;) & while(true)
 ------------------------------
-Test.java
+`Test.java`
 ```java
 public class Test {
   public static void testFor(){
@@ -34,3 +34,5 @@ public class Test {
        0: goto          0
 }
 ```
+
+![for(;;) & while(true)](https://images.gitee.com/uploads/images/2020/0629/173752_2a5f47b1_536895.png "for(;;)&while(true).png")
