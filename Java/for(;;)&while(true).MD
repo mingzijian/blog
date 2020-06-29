@@ -1,6 +1,15 @@
 for(;;) & while(true)
 ------------------------------
+```shell
+# java -version
+java version "1.8.0_231"
+Java(TM) SE Runtime Environment (build 1.8.0_231-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.231-b11, mixed mode)
+
+```
+
 `Test.java`
+
 ```java
 public class Test {
   public static void testFor(){
@@ -13,8 +22,8 @@ public class Test {
 }
 ```
 ```shell
-javac Test.java
-javap -c Test.class
+# javac Test.java
+# javap -c Test.class
 ```
 ```java
 Compiled from "Test.java"
