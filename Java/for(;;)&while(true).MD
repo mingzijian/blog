@@ -45,3 +45,6 @@ public class Test {
 ```
 
 ![for(;;) & while(true)](https://images.gitee.com/uploads/images/2020/0629/173752_2a5f47b1_536895.png "for(;;)&while(true).png")
+
+#### 总结
+对于Java（HotSpot）而言，`for(;;)` 与 `while(true)` 都被编译优化为 `goto`，执行效率没有差别。
