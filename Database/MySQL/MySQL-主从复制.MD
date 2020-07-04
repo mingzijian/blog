@@ -23,6 +23,7 @@ MySQL 主从复制
  - PXC
 #### 形式
  - 一主一从
+![一主一从](https://images.gitee.com/uploads/images/2020/0704/112136_81631e35_536895.png "一主一从.png")
  - 一主多从
  - 多主一从
  - 互为主从
