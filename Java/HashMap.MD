@@ -8,7 +8,7 @@ HashMap
 |  1.8之前    |  数组+单向链表     |
 |  1.8及之后  |  数组+单向链表+红黑树  （当单向链表的节点数>=8时，转为红黑树；当红黑树的节点数<=6时，转为单向链表）  |
 
-
+![HashMap-JDK1.8](https://images.gitee.com/uploads/images/2020/0704/144945_1e3942c7_536895.png "HashMap-JDK1.8.png")
 
 
 ### 常见问题
