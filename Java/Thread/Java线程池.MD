@@ -2,6 +2,7 @@ Java 线程池
 -----------------
 ### 介绍
 #### 参数
+
  - int corePoolSize,
    核心线程数，线程池中保留的最小线程数量
  - int maximumPoolSize,
@@ -27,115 +28,115 @@ Java 线程池
    -  AbortPolicy
     抛出一个RejectedExecutionException,丢弃任务
    ```java
-   /**
-     * A handler for rejected tasks that throws a
-     * {@code RejectedExecutionException}.
-     */
-    public static class AbortPolicy implements RejectedExecutionHandler {
-        /**
-         * Creates an {@code AbortPolicy}.
+       /**
+         * A handler for rejected tasks that throws a
+         * {@code RejectedExecutionException}.
          */
-        public AbortPolicy() { }
+        public static class AbortPolicy implements RejectedExecutionHandler {
+            /**
+             * Creates an {@code AbortPolicy}.
+             */
+            public AbortPolicy() { }
 
-        /**
-         * Always throws RejectedExecutionException.
-         *
-         * @param r the runnable task requested to be executed
-         * @param e the executor attempting to execute this task
-         * @throws RejectedExecutionException always
-         */
-        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
-            throw new RejectedExecutionException("Task " + r.toString() +
-                                                 " rejected from " +
-                                                 e.toString());
+            /**
+             * Always throws RejectedExecutionException.
+             *
+             * @param r the runnable task requested to be executed
+             * @param e the executor attempting to execute this task
+             * @throws RejectedExecutionException always
+             */
+            public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+                throw new RejectedExecutionException("Task " + r.toString() +
+                                                     " rejected from " +
+                                                     e.toString());
+            }
         }
-    }
    ```
    
    -  CallerRunsPolicy
       直接在调用方线程中执行任务.如果执行器已关闭,丢弃任务
       ```java
-      /**
-     * A handler for rejected tasks that runs the rejected task
-     * directly in the calling thread of the {@code execute} method,
-     * unless the executor has been shut down, in which case the task
-     * is discarded.
-     */
-    public static class CallerRunsPolicy implements RejectedExecutionHandler {
         /**
-         * Creates a {@code CallerRunsPolicy}.
+         * A handler for rejected tasks that runs the rejected task
+         * directly in the calling thread of the {@code execute} method,
+         * unless the executor has been shut down, in which case the task
+         * is discarded.
          */
-        public CallerRunsPolicy() { }
+        public static class CallerRunsPolicy implements RejectedExecutionHandler {
+            /**
+             * Creates a {@code CallerRunsPolicy}.
+             */
+            public CallerRunsPolicy() { }
 
-        /**
-         * Executes task r in the caller's thread, unless the executor
-         * has been shut down, in which case the task is discarded.
-         *
-         * @param r the runnable task requested to be executed
-         * @param e the executor attempting to execute this task
-         */
-        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
-            if (!e.isShutdown()) {
-                r.run();
+            /**
+             * Executes task r in the caller's thread, unless the executor
+             * has been shut down, in which case the task is discarded.
+             *
+             * @param r the runnable task requested to be executed
+             * @param e the executor attempting to execute this task
+             */
+            public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+                if (!e.isShutdown()) {
+                    r.run();
+                }
             }
         }
-    }
      ```
      
    -  DiscardOldestPolicy
       抛弃队列中最老的任务,然后尝试将当前任务加入队列.如果执行器已关闭,丢弃任务
       ```java
-      /**
-     * A handler for rejected tasks that discards the oldest unhandled
-     * request and then retries {@code execute}, unless the executor
-     * is shut down, in which case the task is discarded.
-     */
-    public static class DiscardOldestPolicy implements RejectedExecutionHandler {
         /**
-         * Creates a {@code DiscardOldestPolicy} for the given executor.
+         * A handler for rejected tasks that discards the oldest unhandled
+         * request and then retries {@code execute}, unless the executor
+         * is shut down, in which case the task is discarded.
          */
-        public DiscardOldestPolicy() { }
+        public static class DiscardOldestPolicy implements RejectedExecutionHandler {
+            /**
+             * Creates a {@code DiscardOldestPolicy} for the given executor.
+             */
+            public DiscardOldestPolicy() { }
 
-        /**
-         * Obtains and ignores the next task that the executor
-         * would otherwise execute, if one is immediately available,
-         * and then retries execution of task r, unless the executor
-         * is shut down, in which case task r is instead discarded.
-         *
-         * @param r the runnable task requested to be executed
-         * @param e the executor attempting to execute this task
-         */
-        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
-            if (!e.isShutdown()) {
-                e.getQueue().poll();
-                e.execute(r);
+            /**
+             * Obtains and ignores the next task that the executor
+             * would otherwise execute, if one is immediately available,
+             * and then retries execution of task r, unless the executor
+             * is shut down, in which case task r is instead discarded.
+             *
+             * @param r the runnable task requested to be executed
+             * @param e the executor attempting to execute this task
+             */
+            public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+                if (!e.isShutdown()) {
+                    e.getQueue().poll();
+                    e.execute(r);
+                }
             }
         }
-    }
-    
      ```
+     
    -  DiscardPolicy
       默默地丢弃任务.
       ```java
-      /**
-     * A handler for rejected tasks that silently discards the
-     * rejected task.
-     */
-    public static class DiscardPolicy implements RejectedExecutionHandler {
         /**
-         * Creates a {@code DiscardPolicy}.
+         * A handler for rejected tasks that silently discards the
+         * rejected task.
          */
-        public DiscardPolicy() { }
+        public static class DiscardPolicy implements RejectedExecutionHandler {
+            /**
+             * Creates a {@code DiscardPolicy}.
+             */
+            public DiscardPolicy() { }
 
-        /**
-         * Does nothing, which has the effect of discarding task r.
-         *
-         * @param r the runnable task requested to be executed
-         * @param e the executor attempting to execute this task
-         */
-        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+            /**
+             * Does nothing, which has the effect of discarding task r.
+             *
+             * @param r the runnable task requested to be executed
+             * @param e the executor attempting to execute this task
+             */
+            public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+            }
         }
-    }
      ```
 
 
@@ -195,8 +196,10 @@ java.util.concurrent.ThreadPoolExecutor
 ```
 
 ### 作用
-
+ - 复用
+ - 管理
 ### 使用
 #### 使用方式
 
 #### 使用场景
+
