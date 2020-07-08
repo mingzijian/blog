@@ -60,5 +60,10 @@ AOP (Aspect Oriented Programming) 面向切面编程
  - Synchronization　同步
  - Transactions 事务
 
+#### Spring AOP 和 AspectJ AOP 区别
 
- 
+Spring AOP是属于运行时增强，而AspectJ是编译时增强。Spring AOP基于代理（Proxying），而AspectJ基于字节码操作（Bytecode Manipulation）。
+
+Spring AOP已经集成了AspectJ，AspectJ应该算得上是Java生态系统中最完整的AOP框架了。AspectJ相比于Spring AOP功能更加强大，但是Spring AOP相对来说更简单。
+
+如果我们的切面比较少，那么两者性能差异不大。但是，当切面太多的话，最好选择AspectJ，它比SpringAOP快很多。
