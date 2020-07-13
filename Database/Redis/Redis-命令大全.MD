@@ -242,3 +242,4 @@ Redis-命令大全
 
 #### 参考
  - http://www.redis.cn/commands.html
+ - https://redis.io/commands
