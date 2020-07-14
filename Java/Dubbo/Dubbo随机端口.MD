@@ -135,7 +135,9 @@ public class DynamicDubboPortReaderImpl implements ApplicationContextAware {
 		Map<String, ProtocolConfig> beansOfType = applicationContext.getBeansOfType(ProtocolConfig.class);
 		for (Entry<String, ProtocolConfig> item : beansOfType.entrySet()) {
 			port = NetUtils.getAvailablePort();
-			System.out.println("##################use sure###########################"+port);
+			System.out.println("====================================");
+			System.out.println("===> dubbo available port:" + port);
+			System.out.println("====================================");
 			item.getValue().setPort(port);
 		}
 	}
