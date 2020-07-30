@@ -32,7 +32,8 @@ MySQL 索引
 - 聚簇索引与非聚簇索引结构对比
 ![聚簇索引与非聚簇索引对比](https://images.gitee.com/uploads/images/2020/0730/133257_44f56e2e_536895.png "聚簇索引与非聚簇索引对比.png")
 #### MyISAM 
-![非聚簇索引](https://images.gitee.com/uploads/images/2020/0730/164916_1286aa51_536895.png "非聚簇索引.png")
+![非聚簇索引-PK](https://images.gitee.com/uploads/images/2020/0730/170039_da21321b_536895.png "非聚簇索引-PK.png")
+![非聚簇索引-SK](https://images.gitee.com/uploads/images/2020/0730/164916_1286aa51_536895.png "非聚簇索引-SK.png")
 #### InnoDB
 ![聚簇索引-PK](https://images.gitee.com/uploads/images/2020/0730/164931_462c2606_536895.png "聚簇索引-PK.png")
 ![聚簇索引-SK](https://images.gitee.com/uploads/images/2020/0730/164945_be04fae1_536895.png "聚簇索引-SK.png")
@@ -50,4 +51,4 @@ MySQL 索引
 
 ### 参考
  - https://juejin.im/post/5b55b842f265da0f9e589e79
- - https://www.jianshu.com/p/ac12d2c83708
+ - http://blog.codinglabs.org/articles/theory-of-mysql-index.html
