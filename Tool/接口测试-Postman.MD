@@ -52,7 +52,7 @@
 
 - [使用动态变量](https://learning.postman.com/docs/sending-requests/variables/#using-dynamic-variables)
 
-    `{{$guid}}`：添加一个V4风格GUID(如： aa002-44ac-45ca-aae3-52bf19650e2d)
+    `{{$guid}}`：添加一个GUID(GUID 的格式为“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”，其中每个 x 是 0-9 或 a-f 范围内的一个[十六进制数](https://baike.baidu.com/item/十六进制数)。例如：6f9619ff-8b86-d011-f42d-00c04fd964ff 即为有效的 GUID 值)
 
     `{{$timestamp}}`：将当前的时间戳，精确到秒
 
