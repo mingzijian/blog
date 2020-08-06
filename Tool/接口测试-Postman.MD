@@ -58,7 +58,10 @@
 
     `{{$randomInt}}`：添加0和1000之间的随机整数
 
-    更多...
+    更多内置动态变量...
+
+![Postman动态变量Random](https://images.gitee.com/uploads/images/2020/0806/205634_43860519_536895.png "Postman动态变量Random.png")
+
 
 - [下一步](https://learning.postman.com/docs/sending-requests/variables/#next-steps)
     有关如何管理和共享变量数据集的概述，请参阅管理环境
