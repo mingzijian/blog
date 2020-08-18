@@ -22,7 +22,7 @@ TCP (传输控制协议)
 全双工（Full Duplex）是通讯传输的一个术语。通信允许数据在两个方向上同时传输，它在能力上相当于两个单工通信方式的结合。全双工指可以同时（瞬时）进行信号的双向传输（A→B且B→A）。指A→B的同时B→A，是瞬时同步的。
 ### 连接的建立与断开
 
-![TCP](https://images.gitee.com/uploads/images/2020/0818/134819_1d5d291a_536895.png "TCP.png")
+![TCP](https://images.gitee.com/uploads/images/2020/0818/141004_e6e61f49_536895.png "TCP.png")
 
 #### 三次握手（建立连接）
 建立连接协议
