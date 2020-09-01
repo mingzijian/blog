@@ -35,9 +35,9 @@ public interface Externalizable extends java.io.Serializable {
 }
 ```
 #### 部分属性序列化过滤的方法
-1.使用transient关键字
-2.实现Externalizable接口，重写writeExternal和readExternal方法
-3.自定义writeObject和readObject方法
+- 1.使用transient关键字
+- 2.实现Externalizable接口，重写writeExternal和readExternal方法
+- 3.自定义writeObject和readObject方法
 
 ##### 被transient修饰的属性是否一定不会被序列化？
 不一定。被transient修饰的属性有可能会被序列化。比如通过方法2或方法3自定义了对象的序列化方式，在自定义方法中，仍然可以序列化该属性，即使它被transient修饰。
