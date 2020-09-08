@@ -40,7 +40,7 @@ Redis-持久化
   如果发生故障，可能会丢失1秒的数据。
   
 ## 数据恢复
-
+![Redis数据恢复](https://images.gitee.com/uploads/images/2020/0908/125142_69418b17_536895.png "Redis数据恢复.png")
 
 ## 参考
 - https://redis.io/topics/persistence
