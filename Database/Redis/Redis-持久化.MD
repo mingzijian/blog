@@ -42,5 +42,9 @@ Redis-持久化
 ## 数据恢复
 ![Redis数据恢复](https://images.gitee.com/uploads/images/2020/0908/125142_69418b17_536895.png "Redis数据恢复.png")
 
+### 当AOF和RDB同时存在
+Redis重启时，如果AOF和RDB同时存在，将优先使用AOF重建数据集，因为AOF保存的数据更完整。
+In the case both AOF and RDB persistence are enabled and Redis restarts the AOF file will be used to reconstruct the original dataset since it is guaranteed to be the most complete.
+
 ## 参考
 - https://redis.io/topics/persistence
