@@ -2,6 +2,7 @@ Docker应用-搭建Redis哨兵集群
 ----------------------------------
 <pre>Redis4.0 一主两从三哨兵</pre>
 #### 准备工作
+
  - 服务器（物理机/云主机/虚拟机）
  - Docker 安装
  - Redis 版本选择
@@ -155,11 +156,12 @@ Docker应用-搭建Redis哨兵集群
 
     # 启动容器 redis-sentinel-26381 哨兵3 172.17.0.9
     $ docker run -p 26381:26379 -v /data/redis/redis-sentinel-26381-data/:/data --name redis-sentinel-26381 -d redis:4.0 redis-sentinel /data/redis-sentinel.conf
+    ```
 
 
     # 6个 redis 容器已启动
     $ docker ps |grep redis
-
+    
     # 6个 redis 容器对应的ip
     $ docker inspect --format='{{.NetworkSettings.IPAddress}}' redis-server-6379
     172.17.0.4
@@ -173,7 +175,7 @@ Docker应用-搭建Redis哨兵集群
     172.17.0.8
     $ docker inspect --format='{{.NetworkSettings.IPAddress}}' redis-sentinel-26381
     172.17.0.9
-
+    
     ```
 
 #### 参考
