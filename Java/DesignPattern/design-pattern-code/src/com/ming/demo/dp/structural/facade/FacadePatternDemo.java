@@ -8,8 +8,6 @@ package com.ming.demo.dp.structural.facade;
  * 这个接口使得这一子系统更加容易使用。
  * @author ming
  * @date 2020-09-21 20:26
- * <p>company: 杭州行装网络技术有限公司</p>
- * <p>修改履历：</p>
  */
 public class FacadePatternDemo {
 

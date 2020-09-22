@@ -6,8 +6,6 @@ package com.ming.demo.dp.creational.builder;
  * 使得同样的构建过程可以创建不同的表示。
  * @author ming
  * @date 2020-09-21 20:31
- * <p>company: 杭州行装网络技术有限公司</p>
- * <p>修改履历：</p>
  */
 public class BuilderPatternDemo {
 

@@ -7,8 +7,6 @@ package com.ming.demo.dp.structural.adapter;
  * 其别名为包装器(Wrapper)。
  * @author ming
  * @date 2020-09-21 20:21
- * <p>company: 杭州行装网络技术有限公司</p>
- * <p>修改履历：</p>
  */
 public class AdapterPatternDemo {
 

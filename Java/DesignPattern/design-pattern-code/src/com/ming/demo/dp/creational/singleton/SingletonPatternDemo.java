@@ -7,8 +7,6 @@ package com.ming.demo.dp.creational.singleton;
  * 这个类称为单例类，它提供全局访问的方法。
  * @author ming
  * @date 2020-09-21 20:20
- * <p>company: 杭州行装网络技术有限公司</p>
- * <p>修改履历：</p>
  */
 public class SingletonPatternDemo {
 
