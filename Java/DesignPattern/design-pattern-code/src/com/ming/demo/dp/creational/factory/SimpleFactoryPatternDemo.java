@@ -7,7 +7,7 @@ package com.ming.demo.dp.creational.factory;
  */
 public class SimpleFactoryPatternDemo {
 
-    public Movable create(String name){
+    public Movable createMovable(String name){
         Movable m;
         switch (name) {
             case "tank":
@@ -24,16 +24,49 @@ public class SimpleFactoryPatternDemo {
                 break;
             default:
                 throw new RuntimeException("wrong name");
-
         }
         return m;
     }
 
+    public Animal createAnimal(String name){
+        Animal a;
+        switch (name) {
+            case "cat":
+                a=new Cat();
+                break;
+            case "dog":
+                a=new Dog();
+                break;
+            default:
+                throw new RuntimeException("wrong name");
+        }
+        return a;
+    }
+
+    public Vehicle createVehicle(String name){
+        Vehicle v;
+        switch (name) {
+            case "tank":
+                v=new Tank();
+                break;
+            case "plane":
+                v=new Plane();
+                break;
+            default:
+                throw new RuntimeException("wrong name");
+        }
+        return v;
+    }
+
     public static void main(String[] args) {
         SimpleFactoryPatternDemo d=new SimpleFactoryPatternDemo();
-        d.create("tank").move();
-        d.create("plane").move();
-        d.create("cat").move();
-        d.create("dog").move();
+        d.createMovable("tank").move();
+        d.createMovable("plane").move();
+        d.createMovable("cat").move();
+        d.createMovable("dog").move();
+
+        d.createAnimal("dog").move();
+
+        d.createVehicle("tank").move();
     }
 }
