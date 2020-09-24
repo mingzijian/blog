@@ -68,5 +68,11 @@ public class SimpleFactoryPatternDemo {
         d.createAnimal("dog").move();
 
         d.createVehicle("tank").move();
+
+        MovableFactory tankFactory=new TankFactory();
+        tankFactory.createMovable().move();
+
+        MovableFactory planeFactory=new PlaneFactory();
+        planeFactory.createMovable().move();
     }
 }
