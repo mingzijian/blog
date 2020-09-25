@@ -6,7 +6,7 @@ package com.ming.demo.dp.structural.proxy;
  * @author ming
  * @date 2020-09-24 13:39
  */
-public abstract class Human {
+public abstract class Human implements IMouth,IEars{
 
     /**
      * 说
@@ -39,6 +39,4 @@ public abstract class Human {
         msg=String.format("%s让我对你说：‘%s’", from.getClass().getSimpleName(), msg);
         this.say(to,msg);
     }
-
-
 }
