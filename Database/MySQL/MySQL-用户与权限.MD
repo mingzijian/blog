@@ -89,6 +89,8 @@ MySQL-用户与权限
     +---------------------------------------------------------------+
     2 rows in set (0.06 sec)
     ```
+ - 刷新权限
+ 
  - 权限列表
 
 |权  限|作用范围|作  用|
@@ -125,9 +127,15 @@ MySQL-用户与权限
 |create tablespace	|服务器|	创建/更改/删除表空间/日志文件 |
 |proxy				|服务器|	代理成为其它用户     |
 |usage				|服务器|	没有权限            |
- 
 
 #### 参考
+
  - https://dev.mysql.com/doc/
+
+   - MySQL5.7权限参考 https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html
+
+   - MySQL8.0权限参考 https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html
+
  - https://www.mysqlzh.com/
+
  - https://www.cnblogs.com/wangyueping/p/11258028.html
