@@ -54,7 +54,7 @@ Installing Zentao version: 12.3.2 ...
 ### WEB访问
 http://localhost:port
 
-![zentao-user-login](https://images.gitee.com/uploads/images/2020/1022/181445_b70cd9c7_536895.png "zentao-user-login.png")
+![zentao-user-login](https://images.gitee.com/uploads/images/2020/1022/181551_f3adcebd_536895.png "zentao-user-login.png")
 
 ### 参考
 - https://www.zentao.net/book/zentaopmshelp/405.html
