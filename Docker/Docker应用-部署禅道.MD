@@ -19,7 +19,7 @@ latest: Pulling from idoop/zentao
 ```
 #### 命令说明
 `sudo docker pull [镜像名]:[镜像标签]`
-`sudo docker pull easysoft/zentao:12.3.3`
+`sudo docker pull idoop/zentao:12.3.2`
 
 #### Docker Hub 镜像版本
 - https://hub.docker.com/r/idoop/zentao/tags
@@ -54,6 +54,7 @@ Installing Zentao version: 12.3.2 ...
 ### WEB访问
 http://localhost:port
 
+![zentao-user-login](https://images.gitee.com/uploads/images/2020/1022/181201_3c6df157_536895.png "zentao-user-login.png")
 
 ### 参考
 - https://www.zentao.net/book/zentaopmshelp/405.html
