@@ -32,6 +32,15 @@ MySQL 索引
 
 3、由于B+树的数据都存储在叶子结点中，分支结点均为索引，方便扫库，只需要扫一遍叶子结点即可，但是B树因为其分支结点同样存储着数据，我们要找到具体的数据，需要进行一次中序遍历按序来扫，所以B+树更加适合在区间查询的情况，所以通常B+树用于数据库索引。
 
+### 强制、忽略索引
+#### 强制索引 FORCE INDEX
+SELECT * FROM TABLE1 FORCE INDEX (FIELD1) …
+只使用建立在FIELD1上的索引，而不使用其它字段上的索引。
+
+#### 忽略索引  IGNORE INDEX
+SELECT * FROM TABLE1 IGNORE INDEX (FIELD1, FIELD2) …
+TABLE1表中FIELD1和FIELD2上的索引将不被使用。
+
 ### 聚簇索引(聚集索引)
 - 聚簇索引与非聚簇索引结构对比
 ![聚簇索引与非聚簇索引对比](https://images.gitee.com/uploads/images/2020/0730/133257_44f56e2e_536895.png "聚簇索引与非聚簇索引对比.png")
