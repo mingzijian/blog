@@ -23,7 +23,8 @@ docker save : 将指定镜像保存成 tar 归档文件。
 docker load : 导入使用 docker save 命令导出的镜像。
 `docker load [OPTIONS]`
 
-### 实操
+### 实操 (以转移showdoc为例)
+
 #### 在源服务器上保存导出容器
 ```shell
 > docker images
