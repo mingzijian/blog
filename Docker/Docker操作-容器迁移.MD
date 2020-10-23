@@ -24,6 +24,42 @@ docker load : 导入使用 docker save 命令导出的镜像。
 `docker load [OPTIONS]`
 
 ### 实操
+#### 在源服务器上保存导出容器
+```shell
+> docker images
+<
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+star7th/showdoc     latest              cd345955c0a0        7 weeks ago         395MB
+
+> docker save -o showdoc-save.tar star7th/showdoc
+
+> ls
+<
+showdoc-save.tar
+```
+#### 将源服务器上导出的tar文件传输到目标服务器
+```shell
+scp local_file remote_username@remote_ip:remote_file 
+```
+
+#### 在目标服务器上加载导入容器并启动
+
+```shell
+> docker load -i showdoc-save.tardoc
+
+> docker images
+<
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+star7th/showdoc     latest              cd345955c0a0        7 weeks ago         395MB
+
+> docker run -d --name showdoc  -p 4999:80 -v /showdoc_data/html:/var/www/html/ star7th/showdoc
+
+> docker ps 
+<
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS
+                                                NAMES
+894b62e93f72        star7th/showdoc:latest   "docker-php-entrypoi…"   19 minutes ago      Up 8 seconds        9000/tc p, 0.0.0.0:4999->80/tcp, 0.0.0.0:4998->443/tcp   showdoc
+```
 
 
 ### 参考
