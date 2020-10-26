@@ -3,6 +3,17 @@
 ### 快速开始
 #### 介绍
 #### 安装与升级
+##### 桌面应用
+- Mac
+  - https://dl.pstmn.io/download/latest/osx
+- Windows
+  - 64位 https://dl.pstmn.io/download/latest/win64
+  - 32位 https://dl.pstmn.io/download/latest/win32
+- Linux
+  - https://dl.pstmn.io/download/latest/linux64
+
+##### Web应用
+go.postman.co/build
 #### 导航栏
 
 #### 发送请求
@@ -17,16 +28,26 @@
 #### 设置
 
 #### 数据导入/导出
+##### 导入数据
+ - 导入Postman数据
+ - 导入API规范
+ - 通过Github仓库导入
+##### 导出数据
+ - 导出集合
+ - 导出环境
+ - 导出数据转储
 #### 答疑
 
 ### 发送请求
 #### 构建请求
 您可以在Postman中发送请求以连接到正在使用的api。
+您的请求可以包含多个详细信息。
 #### 授权请求
 
 #### 接收响应
 
 #### 请求分组
+可以将请求进行分组，以便更好地测试和管理。
 
 #### 变量使用
 
@@ -75,8 +96,58 @@
 #### 详细示例
 
 #### 使用cookie
+##### 管理cookie
 
-#### 使用证书
+##### 创建cookie
+```
+<cookieName>=<cookieValue>; path=/; domain=.domain.com; HttpOnly; Secure; Expires=Tue, 19 Jan 2038 03:14:07 GMT;
+```
+Postman支持以下属性：
+- cookieName, cookieValue
+	cookie的名称和存储在其中的值。
+- Domain
+	域名
+- Path
+- HttpOnly
+- Secure 
+	如果存在，cookie只在URL以`https://`开头时发送，不会通过不安全的连接发送。
+- Expires
+
+```javascript
+// create a cookie jar
+const cookieJar = pm.cookies.jar();
+
+// create a cookie
+cookieJar.set(URL, cookie name, cookie value, callback(error, cookie));
+
+// create a PostmanCookie
+cookieJar.set(URL, { name: cookie name, value: cookie value, httpOnly: true }, callback (error, cookie));
+```
+
+##### 获取cookie
+
+```javascript
+// get the created cookie
+cookieJar.get(URL, cookie name, callback(error, cookie));
+
+// get the created cookies
+cookieJar.getAll(URL, callback(error, cookies));
+```
+##### 删除cookie
+```javascript
+// Delete the created cookie
+cookieJar.unset(URL , cookie name, callback (error));
+
+// delete the set cookies
+cookieJar.clear(URL, callback (error));
+```
+
+#### 证书
+- 添加证书
+- 使用证书
+- 删除证书
+- 编辑证书
+- 证书数据
 
 #### 生成客户端代码
 
@@ -184,10 +255,30 @@ pm.test("Body is string", function () {
 
 ### Collaborating In Postman
 ### 设计和开发API
+#### API生成器
+
+#### 管理和共享API
+
+#### 验证API
+
+#### 模拟数据
+
+#### 监控API
+
+#### 报表分析
 
 ### 发布API
 ### 管理
 ### 开发者资源
+#### Developing with Postman utilities
+#### Postman API
+集成Postman
+#### Echo API
+#### Collection SDK
+#### Postman 运行库
+#### 代码生成器库
+#### Postman 集合转换
+
 ### 整合
 
 ### 快捷键
