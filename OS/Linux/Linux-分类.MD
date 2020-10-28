@@ -1,5 +1,7 @@
 Linux 分类
 ----------------
+![Linux分类](https://images.gitee.com/uploads/images/2020/1028/144457_c55c7e11_536895.png "Linux分类.png")
+
 - 基于Debian
 ![基于Debian](https://images.gitee.com/uploads/images/2020/1028/105812_9d9df583_536895.png "基于Debian.png")
 
