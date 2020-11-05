@@ -4,6 +4,8 @@ CentOS查看硬件信息
 ### 查看CPU信息
 ```shell
 lscpu
+
+cat /proc/cpuinfo
 ```
 https://www.linuxcool.com/lscpu
 
