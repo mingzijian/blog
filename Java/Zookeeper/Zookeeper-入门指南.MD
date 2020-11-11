@@ -4,8 +4,6 @@ ZooKeeper 入门指南
 #### 下载
 - https://zookeeper.apache.org/releases.html#download
 ```shell
-wget https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
-
 wget http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
 ```
 
@@ -16,7 +14,7 @@ wget http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.6.2/apache-zookeepe
 示例：
 ```
 tickTime=2000
-dataDir=/var/lib/zookeeper
+dataDir=/home/data/zk
 clientPort=2181
 ```
 以下是每个字段的含义：
@@ -30,7 +28,13 @@ clientPort=2181
 ##### 启动
 创建好配置文件后，可以启动ZooKeeper了
 ```shell
-> bin/zkServer.sh start
+> cd /usr/local/apache-zookeeper-3.6.2-bin/bin
+> ./zkServer.sh start
+<
+ZooKeeper JMX enabled by default
+Using config: /usr/local/apache-zookeeper-3.6.2-bin/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+
 ```
 
 
@@ -109,7 +113,56 @@ server.3=zoo3:2888:3888
 
 #### 其他优化
 还有一些其他配置参数可以大大提高性能
+
+
+### Java Client
+#### Curator
+Curator是Netflix公司开源的一套zookeeper客户端框架，解决了很多Zookeeper客户端非常底层的细节开发工作，包括连接重连、反复注册Watcher和NodeExistsException异常等等。
+```
+“Guava is to Java that Curator to Zookeeper”
+                                            -- Patrixck Hunt（Zookeeper）
+```
+##### Maven依赖
+```xml
+  ...
+  <properties>
+    <apache-curator.version>2.12.0</apache-curator.version>
+    ...
+  </properties>
+  <dependencies>
+      <!-- 框架，对zookeeper的底层api的一些封装 -->
+      <dependency>
+          <groupId>org.apache.curator</groupId>
+          <artifactId>curator-framework</artifactId>
+          <version>${apache-curator.version}</version>
+      </dependency>
+      <!-- 食谱，封装了一些高级特性，如：Cache事件监听、选举、分布式锁、分布式Barrier -->
+      <dependency>
+          <groupId>org.apache.curator</groupId>
+          <artifactId>curator-recipes</artifactId>
+          <version>${apache-curator.version}</version>
+      </dependency>
+      ...
+  </dependencies>
+```
+##### 基本用法
+###### 连接管理
+- 创建会话
+
+
+###### 节点管理
+- 新增节点
+- 查看节点
+- 修改节点
+- 删除节点
+- 事务操作
+
+
+
+
 ### 参考
 
 - https://zookeeper.apache.org
 - https://github.com/apache/zookeeper/blob/master/zookeeper-docs/src/main/resources/markdown/zookeeperStarted.md
+- https://developer.ibm.com/zh/tutorials/bd-zookeeper/
+
