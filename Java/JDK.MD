@@ -1,8 +1,16 @@
 JDK
 ------
+Java Development Kit (JDK) 是Sun公司（已被Oracle收购）针对Java开发员的软件开发工具包。自从Java推出以来，JDK已经成为使用最广泛的Java SDK（Software development kit）。
+
+
+### 文档
+- [JDK1.6-zh](https://tool.oschina.net/apidocs/apidoc?api=jdk-zh)
+- [OracleJavaSE14-en](https://docs.oracle.com/en/java/javase/14/)
 
 ### CentOS配置JDK
+
 #### 下载
+
 ```shell
 wget https://repo.huaweicloud.com/java/jdk/8u181-b13/jdk-8u181-linux-x64.tar.gz
 ```
@@ -39,3 +47,9 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
 
 ### 镜像
 - [华为云](https://repo.huaweicloud.com/java/jdk/8u181-b13/) 
+- [Oracle官方](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+
+### 参考
+
+- [openjdk](http://openjdk.java.net/projects/jdk/)
+- [oracle javase](https://docs.oracle.com/en/java/javase/)

@@ -12,6 +12,7 @@ JVM调优
 ### 总结
 
 ### 参考
- - https://www.cnblogs.com/hulianwangjiagoushi/p/11233263.html
- - https://www.cnblogs.com/likehua/p/3369823.html
+ - [JVM调优](https://www.cnblogs.com/hulianwangjiagoushi/p/11233263.html)
+ - [JVM参数调优总结](https://www.cnblogs.com/likehua/p/3369823.html)
+ - [GC调优指南-官方](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/)
 

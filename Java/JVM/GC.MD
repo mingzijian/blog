@@ -3,8 +3,26 @@ GC
 ----
 
 ### GC 概念
+垃圾收集 Garbage Collection 通常被称为“GC”
 
+### GC 分类
+#### Partial GC （部分垃圾收集）
+##### Young GC 
+- 收集区域
+young gen
+- 触发条件
+young gen中的eden区分配满
 
+##### Old GC
+只收集 old gen (CMS)
+
+##### Mixed GC
+收集整个young gen以及部分old gen (G1)
+#### Full GC （全部垃圾收集）
+- 收集区域
+整个堆
+- 触发条件
+当准备要触发一次young GC时，如果发现统计数据说之前young GC的平均晋升大小比目前old gen剩余的空间大，则不会触发young GC而是转为触发full GC（因为HotSpot VM的GC里，除了CMS的concurrent collection之外，其它能收集old gen的GC都会同时收集整个GC堆，包括young gen，所以不需要事先触发一次单独的young GC）；或者，如果有perm gen的话，要在perm gen分配空间但已经没有足够空间时，也要触发一次full GC；或者System.gc()、heap dump带GC，默认也是触发full GC。
 
 ### GC 垃圾收集算法
 
@@ -121,17 +139,48 @@ GC
     这也能理解为啥叫SATB 了，即认为开始时所有能遍历到的对象都是需要标记的，即都认为是活的。
 如果我吧b = null,那么d 久是垃圾了， SATB算法也还是会把D最终标记为黑色，导致D 在本轮gc 不能回收，成了浮动垃圾。
 
-
 ####  ZGC
-##### 读屏障（Load Barrier）
+##### 支持JDK版本
+JDK11及之后的版本
+
+##### 目标
+- 1 几毫秒的最大暂停时间（*）
+- 2 暂停时间不会随着堆或活动集大小而增加（*）
+- 3 处理大小从`8MB`到`16TB`的堆
+
+##### 特性
+###### 并发
+Concurrent
+###### 基于区域（分区）
+Region-based
+###### 压缩
+Compacting
+###### 非统一内存访问感知
+NUMA（Non Uniform Memory Access）非统一内存访问
+
+###### 使用彩色指针
+colored pointers
+
+###### 使用读屏障
+读屏障（Load Barrier）
 当读取成员变量时，一律记录下来
 
 
 ####  Shenandoah
-
-
+Red Hat
+并发GC
+目前不分代
 
 #### Epsilon
+
+#### Pauseless
+Azul Systems
+完全并发 
+不分代
+
+#### C4
+Azul Systems
+分代
 
 
 
@@ -140,9 +189,12 @@ GC
 
 
 ### 参考
- - https://blog.csdn.net/ityouknow/article/details/85826170
- - https://blog.csdn.net/zsj777/article/details/80353464
- - https://www.jianshu.com/p/12544c0ad5c1
+ - [CMS 学习笔记](https://blog.csdn.net/ityouknow/article/details/85826170)
+ - [G1和CMS](https://blog.csdn.net/zsj777/article/details/80353464)
+ - [三色标记与读写屏障](https://www.jianshu.com/p/12544c0ad5c1)
+ - [GC调优指南](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/)
+ - [ZGC wiki](https://wiki.openjdk.java.net/display/zgc/Main)
+ - [Major GC与Full GC的区别及触发条件](https://www.zhihu.com/question/41922036/answer/93079526)
 
 
 
