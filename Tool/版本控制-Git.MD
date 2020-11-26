@@ -4,7 +4,50 @@
 ### 简介
 Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
 
+### GIT 安装
+查看当前GIT安装版本
+```shell
+git --version
+```
+[GIT 下载](https://git-scm.com/download/)
 
+#### 命令安装
+- CentOS
+```shell
+yum install -y git
+```
+- Debian/Ubuntu/Deepin
+```shell
+apt-get install git
+```
+#### 源码安装
+[GIT 镜像](https://mirrors.edge.kernel.org/pub/software/scm/git/)
+
+```shell
+# 下载
+> wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.29.2.tar.gz
+# 解压
+> tar -zxvf git-2.29.2.tar.gz
+> cd git-2.29.2
+# 编译前先安装编译依赖
+> yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
+# 配置安装路径
+> ./configure --prefix=/usr/local/git
+# 编译安装
+> make && make install
+
+# 配置环境变量
+> vim /etc/profile
+# GIT_HOME
+GIT_HOME=/usr/local/git
+export PATH=$PATH:$GIT_HOME/bin
+
+# 使环境变量配置生效
+> source /etc/profile
+
+> git --version
+
+```
 
 ### 自定义 GIT
 

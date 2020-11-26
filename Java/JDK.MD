@@ -49,7 +49,13 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
 - [华为云](https://repo.huaweicloud.com/java/jdk/8u181-b13/) 
 - [Oracle官方](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 
+### 国内 JDK 发行版
+- [阿里云-龙井](https://www.aliyun.com/product/dragonwell)
+- [华为云-毕昇](https://www.huaweicloud.com/kunpeng/software/bishengjdk.html)
+- [腾讯云-Kona](https://cloud.tencent.com/product/tkjdk)
+
 ### 参考
 
 - [openjdk](http://openjdk.java.net/projects/jdk/)
 - [oracle javase](https://docs.oracle.com/en/java/javase/)
+- [oracle java download](https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html)
