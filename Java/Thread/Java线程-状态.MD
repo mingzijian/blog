@@ -34,6 +34,7 @@ Java线程-状态
  - TERMINATED 终止
    终止状态表示该线程已经执行完毕。
 
+![Java线程的6种状态](https://images.gitee.com/uploads/images/2020/1202/151049_7908e7d9_536895.png "Java线程的6种状态.png")
 
 #### java.lang.Thread 部分源码参考
 ```java 
