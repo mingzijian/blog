@@ -51,7 +51,7 @@ Netty
 - 事件通道 Event Channel
 - 事件处理器 Event Processor
 
-
+![事件驱动模型](https://images.gitee.com/uploads/images/2020/1203/142309_155b4860_536895.png "事件驱动模型.png")
 
 #### Reactor线程模型
 
