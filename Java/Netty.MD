@@ -54,10 +54,11 @@ Netty
  ![事件驱动模型](https://images.gitee.com/uploads/images/2020/1203/142309_155b4860_536895.png "事件驱动模型.png")
 
 #### Reactor线程模型
+![Reactor线程模型](https://images.gitee.com/uploads/images/2020/1203/144338_328c16dd_536895.png "Reactor线程模型.png")
 
 #### Netty线程模型
 
-
+![Netty工作架构图](https://images.gitee.com/uploads/images/2020/1203/144527_fd2ecc78_536895.png "Netty工作架构图.png")
 
 ### 应用场景
 1）互联网行业：
