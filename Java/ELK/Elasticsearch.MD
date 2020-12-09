@@ -77,7 +77,23 @@ CCR提供了一种将索引从主集群自动同步到可作为热备份的辅�
 集成到Elasticsearch中的安全、监视和管理功能使您能够将Kibana用作管理集群的控制中心。
 数据汇总和索引生命周期管理等功能可帮助您智能地管理数据。
 
+### 常见问题
+#### read_only_allow_delete
+当read_only_allow_delete属性为true时，ES索引只允许读和删数据，不允许增和改数据。
+##### 现象
+```
+[INFO][logstash.outputs.elasticsearch] retrying failed action with response code: 403 ({"type"=>"cluster_block_exception", 
+"reason"=>"blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"})
+```
 
+##### 原因
+- 内存空间不足
+	JVMMemoryPressure 超过92%并持续30分钟时，ES触发保护机制，并且阻止写入操作，以防止集群达到红色状态，启用写保护后，写入操作将失败，并且抛出 ClusterBlockException ，无法创建新索引，并且抛出 IndexCreateBlockException ,当五分钟内恢复不到88%以下时，将禁用写保护。
+- 磁盘空间不足
+	es的默认磁盘水位警戒线是85%，一旦磁盘使用率超过85%，es不会再为该节点分配分片，es还有一个磁盘水位警戒线是90%，超过后，将尝试将分片重定位到其他节点。
+	
+##### 解决方案
+把read_only_allow_delete设置为false。
 
 ### 快速入门（小试牛刀）
 
@@ -175,6 +191,6 @@ Elasticsearch提供了很好的默认设置，只需要很少的配置。可以�
 
 
 ### 参考
-- https://www.elastic.co/cn/elasticsearch/
-- https://www.elastic.co/guide/en/elasticsearch/reference/master/index.html
-
+- [Elasticsearch官网--简体中文](https://www.elastic.co/cn/elasticsearch)
+- [Elasticsearch参考](https://www.elastic.co/guide/en/elasticsearch/reference/master/index.html)
+- [Elasticsearch 史上最全最常用工具清单 --三度](https://www.cnblogs.com/sanduzxcvbnm/p/12020541.html)

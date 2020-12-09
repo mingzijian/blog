@@ -6,6 +6,6 @@ Kibana 是一个免费且开放的用户界面，能够让您对 Elasticsearch �
 
 
 ### 参考
-
-- https://www.elastic.co/cn/kibana
-- https://www.elastic.co/guide/en/kibana/current/introduction.html
+- [kibana镜像--华为云](https://mirrors.huaweicloud.com/kibana/)
+- [kibana官网--简体中文](https://www.elastic.co/cn/kibana)
+- [kibana官方介绍](https://www.elastic.co/guide/en/kibana/current/introduction.html)

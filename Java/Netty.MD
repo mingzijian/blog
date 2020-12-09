@@ -27,12 +27,35 @@ Netty
 社区活跃（版本迭代周期短，bug 修复速度快）
 
 ### 核心组件
+
+#### Bootstrap
+Bootstrap意思是引导。
+一个Netty应用通常由一个Bootstrap开始，主要作用是配置整个Netty程序，串联各个组件。
+Netty中Bootstrap类是客户端程序的启动引导类，ServerBootstrap是服务端启动引导类。
+
 #### Channel
+在Netty框架中，Channel是其中之一的核心概念，是Netty网络通信的主体，由它负责同对端进行网络通信、注册和数据操作等功能。
+
+##### FileChannel
+FileChannel 是操作文件的Channel，我们可以通过 FileChannel 从一个文件中读取数据，也可以将数据写入到文件中。
+
+##### SocketChannel
+SocketChannel 是一个客户端用来进行 TCP 连接的 Channel。
+
+##### ServerSocketChannel
+ServerSocketChannel 顾名思义，是用在服务器为端的，可以监听客户端的 TCP 连接。
+
+##### DatagramChannel
+DatagramChannel 是用来处理 UDP 连接的。
 
 #### EventLoop
+
 #### ChannelFuture
+
 #### ChannelFutureListener
+
 #### ChannelHandler
+
 #### ChannelPipeline
 
 ### 零拷贝
