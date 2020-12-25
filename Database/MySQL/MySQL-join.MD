@@ -98,6 +98,6 @@ if buffer is not empty {
 
 ### 参考
 - [Nested-Loop Join 算法](https://dev.mysql.com/doc/refman/8.0/en/nested-loop-joins.html)
-- [Hash Join 优化](https://dev.mysql.com/doc/refman/8.0/en/hash-joins.html）
+- [Hash Join 优化](https://dev.mysql.com/doc/refman/8.0/en/hash-joins.html)
 
 
