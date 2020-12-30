@@ -35,7 +35,7 @@ SELECT * FROM table1 NATURAL JOIN table2
 - Sort Merge Join
 
 MySQL 8.0.18之前使用`Nested Loop Join`算法
-MySQL 8.0.18及之后使用`Hash Join`算法
+MySQL 8.0.18及之后使用`Hash Join`算法（针对任何有等价连接条件且没有索引可以应用于任何连接条件的查询）
 
 #### NLJ (Nested-Loop Join) 嵌套循环连接
 
@@ -58,6 +58,7 @@ for each row in t1 matching range {
 ```
 
 ##### INL (Index Nested-Loop) 索引嵌套循环
+
 使用`索引`
 
 ##### BNL (Block Nested-Loop) 块嵌套循环
@@ -92,6 +93,7 @@ if buffer is not empty {
 将两表中的小表（称S）作为hash表，然后去扫描另一个表(称M)的每一行数据，用得出来的行数据根据连接条件去映射建立的hash表，hash表是放在内存中的，这样可以很快的得到对应的S表与M表相匹配的行。
 
 #### Sort Merge Join 排序合并连接
+
 首先对两个表按照关联的字段进行排序，分别从两个表中取出一行数据进行匹配，如果合适放入结果集；
 不匹配将较小的那行丢掉继续匹配另一个表的下一行，依次处理直到将两表的数据取完。
 `merge join`的很大一部分开销花在排序上，也是同等条件下差于`hash join`的一个主要原因。
