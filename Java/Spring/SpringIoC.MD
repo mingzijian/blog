@@ -9,14 +9,18 @@ Spring IoC (`Inversion of Control`)
 
 #### 方式实现
  - 依赖注入（Dependency Injection，简称DI）
+   
    <pre>容器负责组件的装配。
  - 依赖查找（Dependency Lookup，简称DL）
+   
    <pre>需要用户使用 API 进行查找资源和组装对象，有侵入性。
 
 #### 优劣分析
  - 优点
+   
    <pre>降低组件耦合度，提高组件可复用率
  - 缺点
+   
    <pre>创建对象的步骤变多，轻微性能损耗
 
 #### 循环依赖
@@ -36,9 +40,9 @@ public class B {
     private A a;
 }
 ```
-![循环依赖](https://images.gitee.com/uploads/images/2020/0603/193915_934bd61f_536895.png "循环依赖.png")
+ ![循环依赖](https://images.gitee.com/uploads/images/2020/0603/193915_934bd61f_536895.png "循环依赖.png")
 
 ##### 解决方案
 三级缓存
-![三级缓存](https://images.gitee.com/uploads/images/2020/0603/194458_ab305929_536895.png "三级缓存.png")
+ ![三级缓存](https://images.gitee.com/uploads/images/2020/0603/194458_ab305929_536895.png "三级缓存.png")
 
