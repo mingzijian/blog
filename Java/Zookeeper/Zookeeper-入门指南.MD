@@ -10,6 +10,7 @@ wget http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.6.2/apache-zookeepe
 #### 单机模式
 
 ##### 配置
+
 启动ZooKeeper之前，需要一个配置文件（建议命名为：`conf/zoo.cfg`）。
 示例：
 ```
