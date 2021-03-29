@@ -29,3 +29,7 @@ UDP报头由4个域组成，其中每个域各占用2个字节，具体包括源
 校验和就是按照这个临时的UDP数据报计算的。
 伪首部既不向下传送也不向上递交，而仅仅是为了计算校验和。
 这样的校验和，既检查了UDP数据报，又对IP数据报的源IP地址和目的IP地址进行了检验。
+
+ ![udp-l](https://gitee.com/mingzijian/resources/raw/master/picgo/v2-69663f6ce218a12153a5a4fe5a92a78e_r.jpg)
+
+ ![udp-t](https://gitee.com/mingzijian/resources/raw/master/picgo/v2-fa0fa846a1c792845356f590a25f5574_r.jpg)
