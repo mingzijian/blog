@@ -100,5 +100,7 @@ Checksum 是根据伪头 + TCP 头 + TCP 数据三部分进行计算的。
 `cat /proc/sys/net/ipv4/tcp_fin_timeout`
 一般10秒到120秒不等
 
-### 参数调优
- - https://blog.csdn.net/erlib/article/details/50236919
+### 参考
+
+ - [TCP参数调优详解](https://blog.csdn.net/erlib/article/details/50236919)
+ - [TCP/IP协议入门教程](http://c.biancheng.net/tcp_ip/)
