@@ -16,9 +16,16 @@ Apache Kafka 是 一个分布式流处理平台。
 ### 核心API
 1. Producer API
 	允许应用程序发布一串流式数据到一个或者多个topic
+	
 2. Consumer API
 	允许应用程序订阅一个或者多个topic，并且对订阅到的流式数据进行处理
+	
 3. Streams API
 	允许一个应用程序作为一个流处理器，消费一个或者多个topic产生的输入流，然后生产一个输出流到一个或者多个topic中去，在输入输出流中进行有效的转换
+	
 4. Connector API
 	允许构建并运行可重用的生产者或者消费者，将topics连接到已存在的应用程序或者数据系统
+	
+5. Admin API
+
+  管理和检查 topics, brokers, acls和其他Kafka对象
