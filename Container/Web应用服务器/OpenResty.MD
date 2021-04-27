@@ -6,5 +6,22 @@ OpenResty® 通过汇聚各种设计精良的 Nginx 模块（主要由 OpenResty
 
 OpenResty® 的目标是让你的Web服务直接跑在 Nginx 服务内部，充分利用 Nginx 的非阻塞 I/O 模型，不仅仅对 HTTP 客户端请求,甚至于对远程后端诸如 MySQL、PostgreSQL、Memcached 以及 Redis 等都进行一致的高性能响应。
 
+### CentOS 安装 OpenResty
+https://openresty.org/cn/linux-packages.html#centos
+
+```shell
+# add the yum repo:
+wget https://openresty.org/package/centos/openresty.repo
+sudo mv openresty.repo /etc/yum.repos.d/
+
+# update the yum index:
+sudo yum check-update
+
+# 安装
+sudo yum install -y openresty
+
+```
+对于 CentOS 8 及更新版本，我们只需要将上面的 `yum` 命令都替换成 `dnf` 即可。
+
 ### 参考
  - [openresty官网](https://openresty.org/)
