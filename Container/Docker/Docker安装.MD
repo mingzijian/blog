@@ -1,6 +1,8 @@
 Docker 安装
 ----------------------------------------------------------
 
+推荐使用[podman](https://podman.io/)替代docker
+
 ### 在 Linux 上安装
 #### 在 Deepin 上安装
 ##### 前期准备
@@ -43,7 +45,7 @@ Docker 安装
     - 获取在线脚本安装 (注意 `apt-get` 与 `apt` 区别 )
     ```shell
     $ curl -sSL https://get.docker.com/ | sh
-    ``` 
+    ```
     - 查看 Docker 版本 `docker -v`
 
  - 配置 Dockers
@@ -68,7 +70,7 @@ Docker 安装
             "debug": true,
             "experimental": true
         }
-        ```
+       ```
      - 修改后重启生效 `sudo systemctl daemon-reload` or `systemctl restart docker`
 
 
@@ -116,6 +118,20 @@ Docker 安装
         > sudo docker images
         > sudo docker run hello-world
      ```
+
+##### 安装 docker-compose
+[官方教程](https://docs.docker.com/compose/install/)
+```shell
+> sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+> sudo chmod +x /usr/local/bin/docker-compose
+
+> sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+> docker-compose --version
+docker-compose version 1.29.1, build c34c88b2
+```
+
 
 
 ### 在 Windows 上安装
