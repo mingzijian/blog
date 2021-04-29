@@ -1,6 +1,11 @@
 Spring Projects
 ------------------------
 从小开始，按需加载。Spring 是模块化设计的。
+
+
+
+[TOC]
+
 #### Spring Boot
 	独立创建，“just run”。
 ##### 特性
@@ -54,7 +59,8 @@ Spring Projects
 #### Spring Cloud
 ##### Spring Cloud Azure
 ##### Spring Cloud Alibaba
-	为分布式应用开发提供一站式解决方案。
+为分布式应用开发提供一站式解决方案。
+
 ###### 特性
  - 流量控制和服务降级
    Sentinel
@@ -72,7 +78,8 @@ Spring Projects
  -  阿里云OSS
 
 ##### Spring Cloud Bus
-	使用轻量级消息代理将分布式系统的节点连接起来。(AMQP and Kafka)
+使用轻量级消息代理将分布式系统的节点连接起来。(AMQP and Kafka)
+
 ##### Spring Cloud for Amazon Web Services
 
 #### Spring Cloud Data Flow
@@ -89,16 +96,31 @@ Spring Projects
 #### Spring REST Docs
 #### Spring Batch
 #### Spring AMQP
+
 	Spring AMQP项目将Spring的核心概念应用于基于AMQP的消息传递解决方案的开发。AMQP，即Advanced Message Queuing Protocol，一个提供统一消息服务的应用层标准高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。
 #### Spring for Android
 #### Spring CredHub
 #### Spring Flo
+一个JavaScript库，它为管道和简单图形提供了一个基本的可嵌入H5可视化构建器。
+这个库被用作Spring云数据流中流式构建器的基础。
+
+Flo包括集成流设计器的所有基本元素，如连接器、控制节点、选项板、状态转换和图形拓扑重要的是，它有一个文本shell、DSL支持和一个图形画布，用于创建和查看全面的工作流。
+
+##### 特性
+ - 使使用DSL、图形画布或两者同时创建、管理和监视流管道
+ - 通过DSL编写管道，并提供内容辅助和自动完成
+ - 查看分布式部署中模块的可视化表示
+ - 在GUI中使用自动调整和网格布局功能，以更轻松，更高效地组织管道
+
 #### Spring for Apache Kafka
 #### Spring LDAP
+LDAP （Lightweight Directory Access Protocol） 轻型目录访问协议
+
 #### Spring Mobile
 #### Spring Roo
 #### Spring Shell
-	用以轻松构建一个功能齐全的Shell（又称命令行）应用程序。
+用以轻松构建一个功能齐全的Shell（又称命令行）应用程序。
+
 #### Spring Statemachine
 #### Spring Vault
 #### Spring Web Flow
