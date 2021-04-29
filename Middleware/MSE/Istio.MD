@@ -70,6 +70,7 @@ Galley 是 Istio 的配置验证、提取、处理和分发组件。
 
 ### 参考
  - [官网](https://istio.io/)
- - [Istio是啥](http://www.uml.org.cn/wfw/201909063.asp)
- - [Istio1.4中文文档 --书栈](https://www.bookstack.cn/read/istio-1.4-zh/575f2c1cabf14274.md)
+ - [Istio是啥](http://www.uml.org.cn/wfw/201909063.asp)/)
  - [what-is-istio](https://istio.io/latest/zh/docs/concepts/what-is-istio/)
+ - [Istio1.4中文文档 --书栈](https://www.bookstack.cn/read/istio-1.4-zh/575f2c1cabf14274.md)
+ - [Istio中文文档 --官网](https://istio.io/latest/zh/docs
