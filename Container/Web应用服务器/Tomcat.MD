@@ -164,8 +164,92 @@ RELEASE-NOTES  发行说明
  - Wrapper
 
 ### 配置
+#### server.xml
+##### 文件示例
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Server port="8005" shutdown="SHUTDOWN">
+  <Listener className="xxx.xxx.xxxListener" />
+  ...
+  <GlobalNamingResources>
+    <Resource name="xxx" auth="xxx" type="xxx" description="xxx" factory="xxx" pathname="xxx" />
+  </GlobalNamingResources>
+  <Service name="xxx">
+    <Executor name="xxx" namePrefix="xxx" maxThreads="150" minSpareThreads="4"/>
+    <Connector port="9016" protocol="xxx" connectionTimeout="20000" redirectPort="8443" />
+    ...
+    <Engine name="xxx" defaultHost="xxx">
+      <Cluster className="xxx"/>
+      <Realm className="xxx">
+        <Realm className="xxx" resourceName="xxx"/>
+      </Realm>
+      <Host name="xxx"  appBase="xxx"
+            unpackWARs="true" autoDeploy="true">
+        <Valve className="xxx" directory="logs" prefix="xxx" suffix=".txt" pattern="%h %l %u %t" />
+        ...
+      </Host>
+    </Engine>
+    ...
+  </Service>
+</Server>
+```
+
+##### 节点分析
+- `<Server/>`
+Server元素在最顶层，代表整个Tomcat容器，因此它必须是server.xml中唯一一个最外层的元素。
+  - `shutdown`属性
+  - `port`属性
 
 
-#### 参考
+- `<Listener/>`
+
+
+- `<GlobalNamingResources/>`
+
+
+- `<Service/>`
+
+
+- `<Executor/>`
+
+
+- `<Connector/>`
+
+
+- `<Engine/>`
+
+
+- `<Cluster/>`
+
+
+- `<Realm/>`
+
+
+- `<Host/>`
+
+
+- `<Valve/>`
+
+### 调优
+#### 安全加固
+1. 降权启动
+    使用普通用户身份启动Tomcat
+2. 端口保护
+   1. telnet端口
+   2. ajp端口
+3. 禁用管理
+    删除tomcat安装目录下`conf/tomcat-user.xml` 删除`webapps`下默认的目录和文件
+
+#### 性能提升
+1. 禁用DNS查询
+2. JVM调优
+3. 随机数与熵池策略
+4. Connector 优化
+5. 缓存优化
+6. IO优化
+7. 组件优化
+
+### 参考
  - [apache tomcat](https://tomcat.apache.org)
  - [Tomcat 启动](https://www.cnblogs.com/fantiantian/p/3638016.html)
+ - [Tomcat 调优](https://www.cnblogs.com/tcy1/p/13498720.html)
