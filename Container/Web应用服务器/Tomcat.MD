@@ -202,33 +202,68 @@ Server元素在最顶层，代表整个Tomcat容器，因此它必须是server.x
 
 
 - `<Listener/>`
+  - `className`属性
+  - `SSLEngine`属性
 
 
 - `<GlobalNamingResources/>`
 
+- `<Resource/>`
+  - `name`属性
+  - `auth`属性
+  - `type`属性
+  - `description`属性
+  - `pfactoryort`属性
+  - `pathname`属性
+
 
 - `<Service/>`
+  - `name`属性
 
 
 - `<Executor/>`
+  - `name`属性
+  - `namePrefix`属性
+  - `maxThreads`属性
+  - `minSpareThreads`属性
 
 
 - `<Connector/>`
+  - `port`属性
+  - `protocol`属性
+  - `redirectPort`属性
+  - `maxThreads`属性
+  - `SSLEnabled`属性
 
 
 - `<Engine/>`
+  - `name`属性
+  - `defaultHost`属性
+  - `jvmRoute`属性
 
 
 - `<Cluster/>`
+  - `className`属性
 
 
 - `<Realm/>`
+  - `className`属性
+  - `resourceName`属性
 
 
 - `<Host/>`
+  - `name`属性
+  - `appBase`属性
+  - `unpackWARs`属性
+  - `autoDeploy`属性
 
 
 - `<Valve/>`
+  - `className`属性
+  - `directory`属性
+  - `prefix`属性
+  - `suffix`属性
+  - `pattern`属性
 
 ### 调优
 #### 安全加固
