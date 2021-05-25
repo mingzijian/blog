@@ -131,9 +131,36 @@ AT模式分两个阶段来管理全局事务：
 | client.undo.dataValidation                         | 二阶段回滚镜像校验                            | 默认true开启，false关闭                                      |
 | client.undo.logSerialization                       | undo序列化方式                                | 默认jackson                                                  |
 | client.undo.logTable                               | 自定义undo表名                                | 默认undo_log                                                 |
+### API
+#### High-Level API
+用于事务边界定义、控制及事务状态查询。
+##### GlobalTransaction
+全局事务：包括开启事务、提交、回滚、获取当前状态等方法。
+
+##### GlobalTransactionContext
+GlobalTransaction 实例的获取需要通过 GlobalTransactionContext
+
+##### TransactionalTemplate
+事务化模板：通过上述 GlobalTransaction 和 GlobalTransactionContext API 把一个业务服务的调用包装成带有分布式事务支持的服务。
+
+#### Low-Level API
+用于控制事务上下文的传播。
+
+##### RootContext
+```java
+// 获取
+String xid = RootContext.getXID();
+// 绑定
+RootContext.bind(rpcXid);
+// 解绑
+String unbindXid = RootContext.unbind();
+// 重绑
+RootContext.bind(unbindXid);
+```
 
 ### 附录
-#### <a id="appendix-1">附录1：事务分组说明</a>
+#### <a name="appendix-1">附录1：事务分组说明</a>
+
 事务分组说明。
 1. 事务分组是什么？
 事务分组是seata的资源逻辑，类似于服务实例。在file.conf中的my_test_tx_group就是一个事务分组。
@@ -143,7 +170,8 @@ AT模式分两个阶段来管理全局事务：
 3. 为什么这么设计，不直接取服务名？
 这里多了一层获取事务分组到映射集群的配置。这样设计后，事务分组可以作为资源的逻辑隔离单位，当发生故障时可以快速failover。
 
-#### <a id="appendix-2">附录2：关于grouplist问题说明</a>
+#### <a name="appendix-2">附录2：关于grouplist问题说明</a>
+
 关于grouplist问题说明下。
 1. 什么时候会用到file.conf中的default.grouplist？
 当registry.type=file时会用到，其他时候不读。
@@ -154,15 +182,18 @@ AT模式分两个阶段来管理全局事务：
 4. seata-spring-boot-starter中的配置为什么是grouplist.default,也就是说和file.conf中的default.grouplist写法刚好颠倒了位置?  
 由于spring-boot本身配置文件语法的要求,这个地方需要将file.conf中的default.grouplist写成grouplist.default,效果是一样的.
 
-#### <a id="appendix-3">附录3：log_status</a>
+#### <a name="appendix-3">附录3：log_status</a>
+
 log_status=1的是防御性的，是收到全局回滚请求，但是不确定某个事务分支的本地事务是否已经执行完成了，这时事先插入一条branchid相同的数据，插入的假数据成功了，本地事务继续执行就会报唯一索引冲突自动回滚。
 假如插入不成功说明表里有数据这个本地事务已经执行完成了，那么取出这条undolog数据做反向回滚操作。
 
-#### <a id="appendix-4">附录4：自动装配</a>
+#### <a name="appendix-4">附录4：自动装配</a>
+
 是否开启spring-boot自动装配，如果开启，则会自动配置seata与spring-boot的集成，包括数据源的自动代理以及GlobalTransactionScanner初始化。
 注：1.0版本新特性，需依赖seata-spring-boot-starter。
 
-#### <a id="appendix-5">附录5</a>
+#### <a name="appendix-5">附录5</a>
+
 seata1.1.0版本新加入以下注解,用于开启数据源自动代理功能
 `@EnableAutoDataSourceProxy`
 
@@ -174,8 +205,8 @@ seata1.1.0版本新加入以下注解,用于开启数据源自动代理功能
     如需切换代理实现方式，请通过seata.useJdkProxy=false进行配置,默认为false，采用CGLIB作为数据源自动代理的实现方式。
 2. 对于使用seata-all的方式，请使用@EnableAutoDataSourceProxy来显式开启数据源自动代理功能。如有需要，可通过该注解的useJdkProxy属性进行代理实现方式的切换。默认为false,采用CGLIB作为数据源自动代理的实现方式。
 
+#### <a name="appendix-6">附录6：服务自动降级策略</a>
 
-#### <a id="appendix-6">附录6：服务自动降级策略</a>
 关于服务自动降级策略的具体实现介绍:
 首先通过读取client.tm.degradeCheck是否为true,决定是否开启自检线程.
 随后读取degradeCheckAllowTimes和degradeCheckPeriod,确认阈值与自检周期.
@@ -184,7 +215,8 @@ seata1.1.0版本新加入以下注解,用于开启数据源自动代理功能
 连续错误由用户接口及自检线程进行累计,直到连续失败次数达到用户的阈值,则关闭Seata分布式事务,避免用户自身业务长时间不可用.
 反之,假如当前分布式事务关闭,那么自检线程继续按照2秒一次的自检,直到连续成功数达到用户设置的阈值,那么Seata分布式事务将恢复使用
 
-#### <a id="appendix-7">附录7</a>
+#### <a name="appendix-7">附录7</a>
+
 在store.mode=db，由于seata是通过jdbc的executeBatch来批量插入全局锁的，根据MySQL官网的说明，连接参数中的rewriteBatchedStatements为true时，在执行executeBatch，并且操作类型为insert时，jdbc驱动会把对应的SQL优化成`insert into () values (), ()`的形式来提升批量插入的性能。
 根据实际的测试，该参数设置为true后，对应的批量插入性能为原来的10倍多，因此在数据源为MySQL时，建议把该参数设置为true。
 
