@@ -30,7 +30,11 @@ using podman version: podman version 2.2.1
 podman-composer version  0.1.7dev
 
 
- ```
+```
+
+### 镜像加速
+`vim /etc/containers/registries.conf`
+
 
 ### 参考
 
