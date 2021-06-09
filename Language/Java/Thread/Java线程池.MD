@@ -168,6 +168,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
 ### 作用
  - 复用
  - 管理
+
 ### 使用
 #### 使用方式
 
@@ -309,3 +310,21 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
 
 #### 使用场景
 
+### 合适的线程数
+通用公式：CPU 核心数 * (1+ IO 耗时/CPU 耗时)
+
+无监控（测试），不调优。
+
+#### CPU 密集型
+CPU 密集型任务:比如加密、解密、压缩、计算等任务。
+
+最佳线程数 = CPU 核心数的 1~2 倍
+
+CPU密集型任务，会密集占用CPU时间片，如果线程数过多（比如是 CPU 核心数的 4 倍），线程去频繁抢占CPU资源，导致大量的不必要的CPU上下文切换，从而造成性能下降。
+
+#### IO 密集型
+IO 密集型任务:比如数据库、文件的读写，网络通信等任务。
+
+最佳线程数 = CPU 核心数 * (1+ IO 耗时/CPU 耗时)
+
+IO 密集型任务，任务的大多数时间都耗费在IO上，由于IO读写速度远慢于CPU速度，如果线程数过少（比如是 CPU 核心数的 一半），线程正在处理IO耗时操作，不与要CPU参与计算，就会导致CPU空闲，无疑是资源浪费。

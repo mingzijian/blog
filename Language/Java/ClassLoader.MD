@@ -44,7 +44,9 @@ Java 的类加载过程可以分为 5 个阶段：载入、验证、准备、解
 #### 方法
 1. 自定义 CustomerClassLoader 继承 ClassLoader
 2. 重写 loadClass() 和 findClass() 方法
+
 #### 场景（什么时候需要打破双亲委派）
+
 ##### Tomcat 破坏双亲委派
 ##### JDBC 破坏双亲委派
 

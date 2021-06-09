@@ -27,6 +27,7 @@ Java引用
 
  - 弱引用
    ThreadLocalMap 中的 Entry 继承自 WeakReference 。
+   
    ```java
    package java.lang;
    import ...
@@ -35,8 +36,8 @@ Java引用
      static class ThreadLocalMap {
        static class Entry extends WeakReference<ThreadLocal<?>> {
             /** 与此ThreadLocal相关联的value，ThreadLocal作为key */
-            Object value;
-
+         Object value;
+   
             Entry(ThreadLocal<?> k, Object v) {
                 super(k);
                 value = v;
@@ -73,6 +74,9 @@ Java引用
    }
    ```
    
+
+ ![image-20210608092856429](https://gitee.com/mingzijian/resources/raw/master/picgo/image-20210608092856429.png)
+
  - 虚引用
    在使用虚引用时，必须和引用队列关联使用。在对象的垃圾回收过程中，如果GC发现一个对象还存在虚引用，则会把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象内存被回收之前采取必要的行动防止被回收。
 虚引用主要用来跟踪对象被垃圾回收器回收的活动。
@@ -202,8 +206,8 @@ public class PhantomReferenceTest {
 }
 ```
 
+### 参考
 
-#### 参考
- - https://blog.csdn.net/u011179993/article/details/54564380
+ - [Reference Javadoc](https://docs.oracle.com/javase/8/docs/api/java/lang/ref/Reference.html)
 
 
