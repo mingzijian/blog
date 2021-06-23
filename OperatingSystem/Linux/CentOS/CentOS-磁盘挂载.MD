@@ -76,7 +76,7 @@ mount -t nfs 192.168.20.100:/data/share /data/link-share
 # 配置挂载文件（开机自动挂载）
 vim /etc/fstab 
 192.168.20.100:/data/share /data/link-share nfs rw,tcp,intr 0 1
-192.168.20.2:/picBank /picBank nfs rw,tcp,intr 0 1
+
 ```
 
 ### 参考
