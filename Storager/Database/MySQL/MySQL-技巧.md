@@ -19,3 +19,8 @@ where id = 1 and length(substring_index(substring_index(a.content,',',b.help_top
  ![image-20210916103919311](https://gitee.com/mingzijian/resources/raw/master/picgo/2021-09/image-20210916103919311.png)
 
  ![image-20210916103934971](https://gitee.com/mingzijian/resources/raw/master/picgo/2021-09/image-20210916103934971.png)
+
+
+
+### 列转行
+
