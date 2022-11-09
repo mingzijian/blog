@@ -10,7 +10,7 @@ MySQL 忘记密码
 /etc/mysql/conf.d/mysql.cnf
 /etc/mysql/conf.d/docker.cnf
 
-```
+```shell
 [mysqld]
 #跳过授权表
 skip-grant-tables

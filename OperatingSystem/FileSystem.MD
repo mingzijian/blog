@@ -19,6 +19,37 @@ FileSystem 文件系统
 
 例如：FAT、exFAT、NTFS、HFS、HFS+、ext2、ext3、ext4、ODS-5、btrfs、XFS、UFS、ZFS。
 
+#### 文件限制
+
+##### 文件名长度限制
+
+1. Linux文件名（含后缀）的长度限制是255个字节(Byte)。（一个UTF-8 中文字符占3个字节）
+2. windows下完全限定文件名必须少于260个字符，目录名必须小于248个字符。 
+> [Windows 文件系统-最大路径长度限制](https://learn.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=registry)
+>
+> [文件规范语法](https://www.ibm.com/docs/zh/tsm/7.1.4?topic=parameters-file-specification-syntax)
+
+- ![AIX operating systems](https://www.ibm.com/docs/zh/SSGSG7_7.1.4/client/common/images/ngaix.gif)![HP-UX operating systems](https://www.ibm.com/docs/zh/SSGSG7_7.1.4/client/common/images/nghpux.gif)![Oracle Solaris operating systems](https://www.ibm.com/docs/zh/SSGSG7_7.1.4/client/common/images/ngsolaris.gif)![Mac OS X operating systems](https://www.ibm.com/docs/zh/SSGSG7_7.1.4/client/common/images/ngmacosx.gif)在 AIX、HP-UX、Solaris 和 Mac 上：文件名的最大字节数为 255。 文件名和路径名组合的最大长度是 1024 个字节。 字符的 Unicode 表示可能占据几个字节，所以文件名可包含的最大字符数会有所不同。
+
+- ![Linux operating systems](https://www.ibm.com/docs/zh/SSGSG7_7.1.4/client/common/images/nglinux.gif)在 Linux 上：文件名的最大长度为 255 个字节。 文件名和路径名组合的最大长度为 4096 个字节。 此长度与操作系统支持的 PATH_MAX 匹配。 字符的 Unicode 说明可能占据几个字节，所以组成路径名和文件名最大字符数会有所不同。 实际限制是路径和文件组件中的字节数，可能对应于相同字符数。
+针对归档或检索操作，您可指定的路径和文件名（组合)的最大长度仍然是 1024 个字节。
+
+- ![Windows operating systems](https://www.ibm.com/docs/zh/SSGSG7_7.1.4/client/common/images/ngwin.gif)文件名和文件路径组合的最大字节数是 6255。 但是，文件名本身不能超过 255 个字符。 而且，路径中的目录名称（包含目录定界符)不能超过 255 个字符。 字符的 Unicode 表示可能占据几个字节，所以文件名可包含的最大字符数会有所不同。
+
+  使用具有 VSS 的开放文件支持功能时，Tivoli Storage Manager 客户机会将快照卷名称添加至正在处理的对象的路径中。 生成的路径（快照卷名称加上对象路径）必须遵守以上限制。 快照卷名称可以为 1024 个字节。
+
+##### 字节与字符
+
+| 编码    | 单个英文字符占用字节数 | 单个中文字符占用字节数                         |
+| ------- | ---------------------- | ---------------------------------------------- |
+| ASCII   | 1                      | 2                                              |
+| UTF-8   | 1                      | 3                                              |
+| Unicode | 1                      | 2                                              |
+| UTF-16  | 2                      | 2（Unicode 扩展区的一些汉字存储需要 4 个字节） |
+| UTF-32  | 4                      | 4                                              |
+
+
+
 ### 闪存文件系统
 在闪存上储存文件的文件系统。
 

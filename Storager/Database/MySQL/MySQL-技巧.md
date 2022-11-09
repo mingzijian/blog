@@ -24,3 +24,29 @@ where id = 1 and length(substring_index(substring_index(a.content,',',b.help_top
 
 ### 列转行
 
+
+
+```sql
+select sum(case audit_status when '00' then total end) as '00',
+       sum(case audit_status when '01' then total end) as '01',
+       sum(case audit_status when '02' then total end) as '02',
+       sum(case audit_status when '06' then total end) as '06'
+from (
+         select '00' as audit_status, count(1) as total
+         from supplier_enroll_correction
+         where audit_status = '00'
+         union all
+         select '01', count(1)
+         from supplier_enroll_correction
+         where audit_status = '01'
+         union all
+         select '02', count(1)
+         from supplier_enroll_correction
+         where audit_status = '02'
+         union all
+         select '06', count(1)
+         from supplier_enroll_correction
+         where audit_status = '06'
+     ) t
+;
+```

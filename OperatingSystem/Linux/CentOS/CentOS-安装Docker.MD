@@ -4,7 +4,7 @@
 
 [Install Docker Engine on CentOS | Docker Documentation](https://docs.docker.com/engine/install/centos/)
 
-```
+```shell
  sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
@@ -41,7 +41,7 @@ sudo docker run hello-world
 
 [Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/)
 
-```
+```shell
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 

@@ -14,7 +14,7 @@ Docker应用-搭建MySQL主从
     | 5.7.29-log |
     +------------+
     1 row in set (0.03 sec)
-
+  
    ```
    ```shell # 服务器查看
    $ mysql --help | grep Distrib
@@ -67,7 +67,7 @@ Docker应用-搭建MySQL主从
         ```
       - 容器内安装 vim `apt update` `apt install vim`
       - 编辑配置文件 `vim /etc/mysql/my.cnf` 添加以下配置
-        ```
+        ```properties
         [mysqld]
         server-id = 1 # 表示是本机的序号为1，同一局域网内注意要唯一
         log_bin = mysql-bin
@@ -75,24 +75,28 @@ Docker应用-搭建MySQL主从
         expire_logs_days = 30 # 超过30天的 binlog 删除
         ```
       - 重启 mysql 服务使配置生效 `service mysql restart`
+      
+          如果报: “service: command not found” ，执行下： `yum install initscripts -y`
       - 重启 mysql 服务时会使得 docker 容器停止，我们还需要启动容器 `docker start mysql-master`
       - 创建数据同步用户并授权
+      
+         - 进入 MySQL 控制台 `mysql -u root -p`
          - 创建用户 
             ```sql
                 mysql> CREATE USER 'slave'@'%' IDENTIFIED BY '123456';
                 Query OK, 0 rows affected (0.00 sec)
             ```
          - 授权 
-            ```
+            ```sql
                 mysql> GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'slave'@'%';
                 Query OK, 0 rows affected (0.00 sec)
             ```
-
+      
    - 从容器(Slave)配置
       - 通过`docker exec -it mysql-slave /bin/bash`命令进入到Slave容器内部
       - 同主容器(Master)配置一样，在从容器内更换软件源，安装 vim
       - 编辑配置文件 `vim /etc/mysql/my.cnf` 添加以下配置
-        ```
+        ```shell
         [mysqld]
         # 表示是本机的序号为2，同一局域网内注意要唯一
         server-id = 2 
@@ -104,7 +108,7 @@ Docker应用-搭建MySQL主从
         expire_logs_days = 30 
         ```
       - 同主容器(Master)一样，重启 mysql 服务和对应容器
-
+   
    - 链接‘主’‘从’
      - 查看主（Master）状态信息 
         <br/>File 和 Position 字段的值后面将会用到，在后面的操作完成之前，需要保证 Master 库不能做任何操作，否则将会引起状态变化（File 和 Position 字段的值变化）
@@ -161,7 +165,7 @@ Docker应用-搭建MySQL主从
         # 在 Master 上创建一个库
         mysql> create database js;
         Query OK, 1 row affected (0.01 sec)
-
+     
         # 在 Master 上能看到该库
         mysql> show databases like 'js';
         +---------------+
@@ -170,7 +174,7 @@ Docker应用-搭建MySQL主从
         | js            |
         +---------------+
         1 row in set (0.04 sec)
-
+     
         # 在 Slave 上也能看到该库
         mysql> show databases like 'js';
         +---------------+
@@ -179,7 +183,7 @@ Docker应用-搭建MySQL主从
         | js            |
         +---------------+
         1 row in set (0.04 sec)
-
+     
      ``
      ```
 
