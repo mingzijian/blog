@@ -2,6 +2,24 @@
 
 ## 查询技巧
 
+### 表容量统计
+
+```sql
+select table_schema                            as '数据库',
+       table_name                              as '表名',
+       TABLE_COMMENT                           as '表注释',
+       table_rows                              as '记录数',
+       truncate(data_length / 1024 / 1024, 2)  as '数据容量(MB)',
+       truncate(index_length / 1024 / 1024, 2) as '索引容量(MB)'
+from information_schema.tables
+where table_schema = 'db_poseidon'
+order by table_rows desc, index_length desc;
+```
+
+
+
+
+
 ### 行转列
 
 ```sql

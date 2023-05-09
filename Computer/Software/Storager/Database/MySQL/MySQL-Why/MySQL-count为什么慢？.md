@@ -2,6 +2,7 @@
 
 ## 含义
 
+
 ## 使用场景
 
 
@@ -14,10 +15,12 @@ MVCC (Multiversion Concurrency Control)
 
 # count 慢？
 
-## count比较
+## count 比较
 
-count(1)
+count(*) ≈ count(1) > count(id)
 
-count(*)
+count(*) 会被优化成  count(0)
+count 统计非 null 则 +1
 
-count(id)
+
+
