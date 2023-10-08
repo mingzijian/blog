@@ -50,9 +50,30 @@
 
   无限适用，自动延期
 
+# 代理类
+
+## ja-netfilter
+
+
+idea.vmoptions
+
+```properties
+-javaagent:/Users/xxx/Applications/ja-netfilter/ja-netfilter.jar
+--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
+--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
+```
+
+url.conf
+```properties
+# jb 的 url.conf 配置文件
+[URL]
+PREFIX,https://account.jetbrains.com/lservice/rpc/validateKey.action
+```
+
 
 
 # 视觉类
+
 ## Code MiniMap
 
   代码小地图
