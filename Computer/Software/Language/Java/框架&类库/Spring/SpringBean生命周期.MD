@@ -13,3 +13,9 @@ Spring Bean 生命周期
 
 ### 销毁 Destruction
 调用对象指定的销毁方法
+
+
+
+
+
+![img](https://gitee.com/mingzijian/resources/raw/master/picgo/2024-03/spring-framework-ioc-source-102.png)

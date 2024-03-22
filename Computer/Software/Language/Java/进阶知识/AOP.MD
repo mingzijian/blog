@@ -60,10 +60,102 @@ AOP (Aspect Oriented Programming) 面向切面编程
  - Synchronization　同步
  - Transactions 事务
 
+#### AOP 实现方式
+
+实现 AOP 的技术，主要分为两大类：
+
+- 静态代理
+
+   \- 指使用 AOP 框架提供的命令进行编译，从而在编译阶段就可生成 AOP 代理类，因此也称为**编译时增强**； 
+
+  - 编译时编织（特殊编译器实现）
+  - 类加载时编织（特殊的类加载器实现）。
+
+- 动态代理
+
+   \- 在运行时在内存中“临时”生成 AOP 动态代理类，因此也被称为**运行时增强**。 
+
+  - JDK 动态代理 
+    - JDK Proxy 是 Java 语言自带的功能，无需通过加载第三方类实现；
+    - Java 对 JDK Proxy 提供了稳定的支持，并且会持续的升级和更新，Java 8 版本中的 JDK Proxy 性能相比于之前版本提升了很多；
+    - JDK Proxy 是通过拦截器加反射的方式实现的；
+    - JDK Proxy **只能代理实现接口的类**；
+    - JDK Proxy 实现和调用起来比较简单；
+  - CGLIB 
+    - CGLib 是第三方提供的工具，基于 ASM 实现的，性能比较高；
+    - CGLib **无需通过接口来实现**，它是针对类实现代理，主要是对指定的类生成一个子类，它是**通过实现子类的方式**来完成调用的。
+
+  ![img](https://gitee.com/mingzijian/resources/raw/master/picgo/2024-03/spring-interview-3-20240321141117792.png)
+
+```java
+public class CGLibDemo {
+    // 需要动态代理的实际对象
+    static class Sister  {
+        public void sing() {
+            System.out.println("一闪一闪亮晶晶，满天都是小星星。");
+        }
+    }
+
+    static class CGLibProxy implements MethodInterceptor {
+
+        private Object target;
+
+        /**
+         * 根据目标对象创建代理实例
+         *
+         * @param target 目标对象
+         * @return 代理实例
+         */
+        public Object getInstance(Object target){
+            this.target = target;
+            Enhancer enhancer = new Enhancer();
+            // 设置父类为实例类
+            enhancer.setSuperclass(this.target.getClass());
+            // 回调方法
+            enhancer.setCallback(this);
+            // 创建代理对象
+            return enhancer.create();
+        }
+
+        @Override
+        public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+            System.out.println("前置处理: 请开始你的表演");
+            Object result = methodProxy.invokeSuper(o,objects);
+            System.out.println("后置处理: 鼓掌");
+            return result;
+        }
+    }
+
+    public static void main(String[] args) {
+        CGLibProxy cgLibProxy = new CGLibProxy();
+        //获取动态代理类实例
+        Sister proxySister = (Sister) cgLibProxy.getInstance(new Sister());
+        System.out.println("CGLib 动态对象类名： " + proxySister.getClass().getName());
+        proxySister.sing();
+    }
+}
+```
+
+CGLib 的调用流程就是通过调用拦截器的 intercept 方法来实现对被代理类的调用。
+
+而逻辑可以写在 intercept 方法的 invokeSuper(o, objects);的前后实现增强。
+
+
+
 #### Spring AOP 和 AspectJ AOP 区别
 
-Spring AOP是属于运行时增强，而AspectJ是编译时增强。Spring AOP基于代理（Proxying），而AspectJ基于字节码操作（Bytecode Manipulation）。
+Spring AOP是属于运行时增强，而AspectJ是编译时增强。
 
-Spring AOP已经集成了AspectJ，AspectJ应该算得上是Java生态系统中最完整的AOP框架了。AspectJ相比于Spring AOP功能更加强大，但是Spring AOP相对来说更简单。
+Spring AOP基于代理（Proxying），而AspectJ基于字节码操作（Bytecode Manipulation）。
+
+Spring AOP已经集成了AspectJ，AspectJ应该算得上是Java生态系统中最完整的AOP框架了。
+
+AspectJ 相比于Spring AOP功能更加强大，但是Spring AOP相对来说更简单。
 
 如果我们的切面比较少，那么两者性能差异不大。但是，当切面太多的话，最好选择AspectJ，它比SpringAOP快很多。
+
+
+
+
+
+### 

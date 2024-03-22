@@ -24,3 +24,14 @@ Redis 数据集数据结构中保存了键值对过期时间的表，即 redisDb
 #### Random
 随机淘汰。
 众生平等。
+
+
+
+#### 查看策略配置
+
+```shell
+>config get maxmemory-policy
+1) "maxmemory-policy"
+2) "volatile-lru"
+```
+
