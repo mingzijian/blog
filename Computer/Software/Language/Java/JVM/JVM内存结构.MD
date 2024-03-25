@@ -1,9 +1,15 @@
 JVM内存结构（Java8）
 -------------------------------
 
+
+
+![image-20240325170811351](https://gitee.com/mingzijian/resources/raw/master/picgo/2024-03/image-20240325170811351.png)
+
 ###  Run-Time Data Areas （运行时数据区）
 
 在程序执行期间使用的各种运行时数据区域。
+
+![image-20240325145101364](https://gitee.com/mingzijian/resources/raw/master/picgo/2024-03/image-20240325145101364.png)
 
 #### The `pc` Register （程序计数器）
 

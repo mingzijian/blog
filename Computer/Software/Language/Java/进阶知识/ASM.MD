@@ -1,4 +1,107 @@
-ASM 是一个 Java 字节码操控框架。它能被用来动态生成类或者增强既有类的功能。
+## 什么是ASM
+
+ASM 是一个可以用来分析、创建和修改 JAVA 字节码的开源应用框架。
+
+## ASM能做什么
+
+分析 JAVA 字节码
+
+创建 JAVA 字节码
+
+修改 JAVA 字节码
+
+
+
+## ASM 实践
+
+HelloWorld 
+
+```java
+public class HelloWorld{
+    public static void main(){
+        System.out.println("HelloWorld!");
+    }
+}
+```
+
+使用 ASM 框架来动态生成：
+
+```java
+package com.allming.demo;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
+
+import java.lang.reflect.Method;
+
+/**
+ * HelloWorldByAsm
+ * @version 1.0
+ */
+public class HelloWorldByAsm {
+
+    public static void main(String[] args) throws Exception {
+        // 生成二进制字节码
+        byte[] bytes = generate();
+        // 使用自定义的ClassLoader
+        MyClassLoader cl = new MyClassLoader();
+        // 加载我们生成的 HelloWorld 类
+        Class<?> clazz = cl.defineClass("com.allming.demo.HelloWorld", bytes);
+        // 反射获取 main 方法
+        Method main = clazz.getMethod("main", String[].class);
+        // 调用 main 方法
+        main.invoke(null, new Object[]{new String[]{}});
+    }
+
+    private static byte[] generate() {
+        ClassWriter cw = new ClassWriter(0);
+        // 定义对象头：版本号、修饰符、全类名、签名、父类、实现的接口
+        cw.visit(Opcodes.V1_7, Opcodes.ACC_PUBLIC, "com/allming/demo/HelloWorld",
+                null, "java/lang/Object", null);
+        String descString = getDesc("java/lang/String");
+        // 添加方法：修饰符、方法名、描述符、签名、抛出的异常
+        MethodVisitor mv = cw.visitMethod(Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC, "main",
+                "(["+descString+")V", null, null);
+        // 执行指令：获取静态属性
+        mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", getDesc("java/io/PrintStream"));
+        // 加载常量 load constant
+        mv.visitLdcInsn("HelloWorld!");
+        // 调用方法
+        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "("+descString+")V");
+        // 返回
+        mv.visitInsn(Opcodes.RETURN);
+        // 设置栈大小和局部变量表大小
+        mv.visitMaxs(2, 1);
+        // 方法结束
+        mv.visitEnd();
+        // 类完成
+        cw.visitEnd();
+        // 生成字节数组
+        return cw.toByteArray();
+    }
+    
+    private static String getDesc(String type){
+        // 基于 Java 的字节码表示法，其中 L 表示这是一个类的类型，后面跟着的是类的全限定名（包括包名和类名），最后以分号 ; 结尾。
+        return "L"+type+";";
+    }
+}
+
+/**
+ * 自定义ClassLoader以支持加载字节数组形式的字节码
+ */
+class MyClassLoader extends ClassLoader {
+    public Class<?> defineClass(String name, byte[] b) {
+        // ClassLoader是个抽象类，而ClassLoader.defineClass 方法是protected的
+        // 所以我们需要定义一个子类将这个方法暴露出来
+        return super.defineClass(name, b, 0, b.length);
+    }
+}
+```
+
+
+
+
+
 ### 参考
 -[ASM 3.0 介绍--李夷磊, 邱小侠, 蔡一超](https://developer.ibm.com/zh/articles/j-lo-asm30/)
 
