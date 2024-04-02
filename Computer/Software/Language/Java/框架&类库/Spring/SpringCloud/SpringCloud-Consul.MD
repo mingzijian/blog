@@ -6,9 +6,10 @@ Spring Cloud Consul通过自动配置和绑定到Spring环境和其他Spring编�
 
 ### 特性
  - 服务发现
- - 支持Ribbon
- - 支持Spring Cloud LoadBalancer
- - 支持Zuul
+ - 支持 Spring Cloud LoadBalancer
+ - 通过 Spring Cloud Gateway 支持 API 网关、动态路由器和过滤器
+ - ~~支持 Ribbon~~
+ - ~~支持 Zuul~~
  - 分布式配置
  - 控制总线
 
