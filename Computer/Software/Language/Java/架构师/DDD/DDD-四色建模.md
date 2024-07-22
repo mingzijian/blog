@@ -42,11 +42,9 @@ Moment-Interval 是最重要的一类对象，因为他是系统业务价值所�
 
 ### <span style="background:green;color:white">3，抽象出可以参与到不同流程中去的角色</span>
 
-![4be4bab3363a3f63a5d5564190f82fa1](C:\Users\hoperun\AppData\Roaming\iDingTalk\4492499506_v2\resource_cache\4b\4be4bab3363a3f63a5d5564190f82fa1.png)
+
 
 ### <span style="background-color:blue;color:white">4，进一步描述补全信息</span>
-
-![d5e929289bd4ac468bb24f98a1e3f67f](C:\Users\hoperun\AppData\Roaming\iDingTalk\4492499506_v2\resource_cache\d5\d5e929289bd4ac468bb24f98a1e3f67f.png)
 
 
 
