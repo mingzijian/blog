@@ -2,7 +2,7 @@
 
 
 
-![DDD-四色建模](C:\Users\hoperun\AppData\Roaming\iDingTalk\4492499506_v2\ImageFiles\1721371905370_88AA978A-1C3F-4f06-865C-C4594E2D9895.png)
+![DDD-四色建模](https://mingzijian-picgo.oss-rg-china-mainland.aliyuncs.com/img/1721371905370_88AA978A-1C3F-4f06-865C-C4594E2D9895.png)
 
 在四色模型中，我们将抽象出来的对象分为四种原型（archetype）
 
@@ -34,11 +34,11 @@ Moment-Interval 是最重要的一类对象，因为他是系统业务价值所�
 
 ### <span style="background-color:pink">1，确定需要分析的业务关键时刻</span>
 
-![a78a88a20bfdda2c05fbccbe4b7f3743](C:\Users\hoperun\AppData\Roaming\iDingTalk\4492499506_v2\resource_cache\a7\a78a88a20bfdda2c05fbccbe4b7f3743.png)
+![1](https://mingzijian-picgo.oss-rg-china-mainland.aliyuncs.com/img/a78a88a20bfdda2c05fbccbe4b7f3743.png)
 
 ### <span style="background-color:yellow">2，定位业务涉及的人/事/物</span>
 
-![a25adc2ef86858c0fbebec53b47b1a23](C:\Users\hoperun\AppData\Roaming\iDingTalk\4492499506_v2\resource_cache\a2\a25adc2ef86858c0fbebec53b47b1a23.png)
+![2](https://mingzijian-picgo.oss-rg-china-mainland.aliyuncs.com/img/a25adc2ef86858c0fbebec53b47b1a23.png)
 
 ### <span style="background:green;color:white">3，抽象出可以参与到不同流程中去的角色</span>
 
@@ -52,4 +52,4 @@ Moment-Interval 是最重要的一类对象，因为他是系统业务价值所�
 
 ### 电商 DDD 四色图
 
-![1721373750811_C7506BD2-ED1C-489f-927A-62321BB80BC2](C:\Users\hoperun\AppData\Roaming\iDingTalk\4492499506_v2\ImageFiles\1721373750811_C7506BD2-ED1C-489f-927A-62321BB80BC2.png)
+![1721373750811_C7506BD2-ED1C-489f-927A-62321BB80BC2](https://mingzijian-picgo.oss-rg-china-mainland.aliyuncs.com/img/1721373750811_C7506BD2-ED1C-489f-927A-62321BB80BC2.png)

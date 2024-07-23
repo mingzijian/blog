@@ -2,8 +2,8 @@
 
 **DHKE**是一种通过公共通道安全地交换加密密钥的数学方法，以Whitfield Diffie和Martin Hellman的名字命名。DH是密码学领域中最早实现的公钥交换实例之一。这两位也是《密码学的新方向》的作者。
 
-![Diffie-Hellman](C:\Users\hoperun\Downloads\Diffie-Hellman.jpg)
-Whitfield Diffie （左） and Martin E. Hellman （右）
+![Diffie-Hellman](https://gitee.com/mingzijian/resources/raw/master/piclist/Diffie-Hellman.jpg)
+Whitfield Diffie （左） and Martin E. Hellman （右)
 
 ## DHKE背后的数学
 ### 幂模运算
