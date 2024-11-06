@@ -1,83 +1,101 @@
 Compared To What 
-较之于何
-
+相较何
 
 Said love the lie and lie the love
-人言爱即谎言，谎言即爱
+爱其伪伪其爱
 Hangin' on with a push and shove
 总是不停摇摆
 Possession is the motivation
-占有便是动机
+占有即是动机
 Hangin' up the holddamn nation
-把这死旧的国家摒弃
+把这恶国摒弃
 Looks like we always end up in a rut
-看起来我们总是在墨守成规中灭亡
+观吾辈总是在老套中沉沦
 Tryin' to make it real but compared to what
-试图让它成为现实，但较之于何
+试使之成真，然何以为真
 Slaughterhouse is killin' hogs
-屠宰场在杀野猪
+屠宰场里把猪刃
 Twisted children killin' frogs
-怪小孩在杀青蛙
+怪孩童将青蛙焚
 Poor dumb rednecks rollin' logs
-穷乡人在滚圆木
+穷乡人拿圆木滚
 Tired old ladies kissin' dogs
-疲老妪在亲吻狗
+疲老妪把狗来吻
 Hate the human love that stinking mutt
-厌恶人类爱这臭气熏天的杂种狗
+有人爱臭狗，吾恨此类人
 Try to make it real but compared to what
-试图让它成为现实，但较之于何
+试使之成真，然何以为真
 Said President he's got his war
-人言总统打了胜仗
+传言总统打了场胜仗
 Folks don't know just what it's for
-平民却不知为何
+平民却不知为何这样
 No one gives us rhyme or reason
-无人给我们原因
+无人告诉我们规律或为何
 Have one doubt they call it treason
-有点怀疑就被他们称之为叛国
+稍有怀疑就被称之为叛国
 Said We're chickenfeathers all without one gut
-说我们都是胆小鬼
+谓吾等皆鼠辈，一勇不存
 Tryin' to make it real but compared to what
-
+试使之成真，然何以为真
 Go Church on Sunday sleep and nod
 周末去教堂睡觉打盹
 Tryin' to duck the wrath of God
-试图躲避上帝的愤怒
+试图躲避上帝之怒愤
 Preacher's fillin' us with fright
-牧师让我们充满恐惧
+牧师令吾辈心生惧意
 Telling what he thinks is right
-告诉我们他认为的对
+好灌输其以为之真理
 He must be some kind of to be nut
-他一定是个疯子
-Tryin' to make it real
-Tryin' to make it real yeah
-Tryin' to make it real
-Tryin' to make it real
-Real real yeah
-Tryin' to make it real
-Real real
-Real real
-Tryin' to make it real
-Tryin' to make it real
-Where's that bee and where's that honey
-何处有蜂何处有蜜
-Where's my God and where's my money
-哪里有钱哪里有上帝
-Unreal values crass distortion
-虚幻的值严重失真
-Unwed mothers need abortion
-未婚的妈妈需要弃婴
-Kind of brings to mind ol' young King Tut
-我想起了年轻的图坦卡蒙国王（埃及法老）
-He try try try
-Tried to make it real
-Tried to make it real but compared to what
-Said love the lie and lie the love
-Hangin' on with a push and shove
-Possession is the motivation
-Hangin' up the Goddamn nation
-Looks like we always end up in a rut
-Tryin' to make it real compared to what
+所以他准是那种疯痞
 
+Tryin' to make it real
+试使之成真
+Tryin' to make it real yeah
+试使之成真啊
+Tryin' to make it real
+试使之成真
+Tryin' to make it real
+试使之成真
+Real real yeah
+真啊真
+Tryin' to make it real
+试使之成真
+Real real
+真真
+Real real
+真真
+Tryin' to make it real
+试使之成真
+Tryin' to make it real
+试使之成真
+Where's that bee and where's that honey
+何处有蜜蜂何处有蜂蜜
+Where's my God and where's my money
+何处有金钱何处有上帝
+Unreal values crass distortion
+虚妄之值失真形
+Unwed mothers need abortion
+未婚母亲欲弃婴
+Kind of brings to mind ol' young King Tut
+忆及年轻的图坦卡蒙国王
+He try try try
+嘿 试试试
+Tried to make it real
+试使之成真
+Tried to make it real but compared to what
+试使之成真，然何以为真
+Said love the lie and lie the love
+爱其伪伪其爱
+Hangin' on with a push and shove
+推搡着不放开
+Possession is the motivation
+占有即是动机
+Hangin' up the Goddamn nation
+把这恶国摒弃
+Looks like we always end up in a rut
+观吾辈总是在老套中沉沦
+Tryin' to make it real compared to what
+试使之成真，然何以为真
 I have seen yesterday, I know tomorrow
-审视昨天，预见明天
+吾观以往而知未来
 
